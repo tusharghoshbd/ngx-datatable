@@ -1,0 +1,494 @@
+
+.jarviswidget {
+	margin: 0 0 30px;
+	position: relative;
+	-moz-border-radius: 0;
+	-khtml-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	padding: 0
+}
+
+.jarviswidget>header {
+	height: 34px;
+	padding: 0;
+	line-height: 40px
+}
+
+.jarviswidget>header>.widget-icon {
+	display: block;
+	width: 30px;
+	height: 32px;
+	position: relative;
+	float: left;
+	font-size: 111%;
+	line-height: 32px;
+	text-align: center;
+	margin-right: -10px
+}
+
+.jarviswidget>header h2 {
+	height: 100%;
+	width: auto;
+	display: inline-block;
+	font-size: 14px;
+	position: relative;
+	margin: 0;
+	line-height: 34px;
+	font-weight: 400;
+	letter-spacing: 0
+}
+
+.jarviswidget>header>h2 {
+	margin-left: 10px;
+	float: left
+}
+
+.jarviswidget>header>:first-child.widget-icon {
+	margin-left: 0
+}
+
+.jarviswidget>header .jarviswidget-icon {
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin: 12px 10px 0 0;
+	display: block;
+	zoom: 1;
+	z-index: 4000
+}
+
+.ui-sortable .jarviswidget-sortable>header {
+	cursor: move;
+	-moz-border-radius: 0;
+	-khtml-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	line-height: normal;
+	box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .05);
+	-moz-box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .05);
+	-webkit-box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .05)
+}
+
+.ui-sortable .jarviswidget-sortable.jarviswidget-collapsed>header {
+	-moz-border-radius: 0;
+	-khtml-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0
+}
+
+.jarviswidget-ctrls {
+	width: auto;
+	float: right;
+	padding: 0;
+	margin: 0
+}
+
+.jarviswidget-ctrls .button-icon {
+	min-width: 30px;
+	height: 32px;
+	float: left;
+	position: relative;
+	font-family: Arial, Helvetica, sans-serif;
+	border-left: 1px solid rgba(0, 0, 0, .09)
+}
+
+.jarviswidget-ctrls .button-icon:hover {
+	background-color: rgba(0, 0, 0, .05)
+}
+
+.jarviswidget-loader {
+	width: 32px;
+	height: 32px;
+	margin: 0;
+	float: right;
+	background-repeat: no-repeat;
+	background-position: center center;
+	display: none;
+	text-align: center;
+	line-height: 32px;
+	font-size: 111%
+}
+
+.jarviswidget>div {
+	float: left;
+	width: 100%;
+	position: relative;
+	font-size: 13px;
+	-moz-border-radius: 0;
+	-khtml-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	margin: 0;
+	border-width: 1px 1px 2px;
+	border-style: solid;
+	border-top: none;
+	border-right-color: #CCC!important;
+	border-bottom-color: #CCC!important;
+	border-left-color: #CCC!important;
+	padding: 13px 13px 0;
+	overflow: visible
+}
+
+.jarviswidget .widget-body {
+	min-height: 100px;
+	position: relative;
+	padding-bottom: 13px
+}
+
+.jarviswidget .widget-body.widget-hide-overflow {
+	overflow: hidden
+}
+
+
+.jarviswidget.well.transparent .widget-body.no-padding {
+	margin: 0!important
+}
+
+
+.jarviswidget.well {
+	margin: 0 0 30px
+}
+
+.jarviswidget.well>div {
+	border: none!important;
+	box-shadow: none!important;
+	-webkit-box-shadow: none!important;
+	-moz-box-shadow: none!important
+}
+
+.jarviswidget.well header {
+	display: none
+}
+
+
+.jarviswidget-editbox {
+	display: none;
+	padding: 10px
+}
+
+.jarviswidget-timestamp {
+	font-size: 12px;
+	color: #868686;
+	font-style: italic;
+	margin: 10px 0 0
+}
+
+.jarviswidget-placeholder {
+	-moz-border-radius: 0;
+	-khtml-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	margin-bottom: 28px;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-khtml-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+#jarviswidget-fullscreen-mode {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1050
+}
+
+#jarviswidget-fullscreen-mode .jarviswidget {
+	margin: 0;
+	-moz-border-radius: 0;
+	-khtml-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0
+}
+
+#jarviswidget-fullscreen-mode .jarviswidget>div {
+	overflow-y: scroll;
+	-moz-border-radius: 0;
+	-khtml-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0
+}
+
+#jarviswidget-fullscreen-mode>div>header {
+	cursor: default
+}
+
+.jarviswidget>header {
+	color: #333;
+	border: 1px solid #C2C2C2;
+	background: #fafafa
+}
+
+.jarviswidget>div {
+	background-color: #fff!important
+}
+
+.jarviswidget-editbox {
+	border-bottom: 1px solid #B1B1B1;
+	background-color: #fff;
+	margin: -13px -13px 13px
+}
+
+.no-padding .jarviswidget-editbox {
+	margin: 0 0 10px
+}
+
+.jarviswidget-placeholder {
+	background-color: #FFC;
+	border: 1px dashed #A7A7A7
+}
+
+.jarviswidget-remove-colors {
+	color: #333!important;
+	padding: 0!important;
+	background: none!important
+}
+
+.jarviswidget-color-magenta>header {
+	border-color: #643167!important;
+	background: #6e3671;
+	color: #fff
+}
+
+.jarviswidget-color-magenta .nav-tabs li:not(.active) a,
+.jarviswidget-color-magenta>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-magenta .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-pink>header {
+	border-color: #a24d7f!important;
+	background: #ac5287;
+	color: #fff
+}
+
+.jarviswidget-color-pink .nav-tabs li:not(.active) a,
+.jarviswidget-color-pink>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-pink .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-pinkDark>header {
+	border-color: #a27998!important;
+	background: #a8829f;
+	color: #fff
+}
+
+.jarviswidget-color-pinkDark .nav-tabs li:not(.active) a,
+.jarviswidget-color-pinkDark>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-pinkDark .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-yellow>header {
+	border-color: #aa9452!important;
+	background: #b09b5b;
+	color: #fff
+}
+
+.jarviswidget-color-yellow .nav-tabs li:not(.active) a,
+.jarviswidget-color-yellow>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-yellow .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-orange>header {
+	border-color: #ba871f!important;
+	background: #c79121;
+	color: #fff
+}
+
+.jarviswidget-color-orange .nav-tabs li:not(.active) a,
+.jarviswidget-color-orange>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-orange .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-orangeDark>header {
+	border-color: #b1811d!important;
+	background: #b6841e;
+	color: #fff
+}
+
+.jarviswidget-color-orangeDark .nav-tabs li:not(.active) a,
+.jarviswidget-color-orangeDark>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-orangeDark .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-darken>header {
+	border-color: #383838!important;
+	background: #404040;
+	color: #fff
+}
+
+.jarviswidget-color-darken>.nav-tabs>li:not(.active)>a,
+.jarviswidget-color-darken>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-darken .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-purple>header {
+	border-color: #665271!important;
+	background: #6e587a;
+	color: #fff
+}
+
+.jarviswidget-color-purple .nav-tabs li:not(.active) a,
+.jarviswidget-color-purple>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-purple .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-teal>header {
+	border-color: #508180!important;
+	background: #568a89;
+	color: #fff
+}
+
+.jarviswidget-color-teal .nav-tabs li:not(.active) a,
+.jarviswidget-color-teal>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-teal .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-blueDark>header {
+	border-color: #45474b!important;
+	background: #4c4f53;
+	color: #fff
+}
+
+.jarviswidget-color-blueDark .nav-tabs li:not(.active) a,
+.jarviswidget-color-blueDark>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-blueDark .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-blue>header {
+	border-color: #45474b!important;
+	background: #4c4f53;
+	color: #fff
+}
+
+.jarviswidget-color-blue .nav-tabs li:not(.active) a,
+.jarviswidget-color-blue>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-blue .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-blueLight>header {
+	border-color: #a0aeb3!important;
+	background: #cbd2d5;
+	color: #000
+}
+
+.jarviswidget-color-blueLight .nav-tabs li a:hover,
+.jarviswidget-color-blueLight .nav-tabs li:not(.active) a,
+.jarviswidget-color-blueLight>header>.jarviswidget-ctrls a {
+	color: #2b363c!important
+}
+
+.jarviswidget-color-red>header {
+	border-color: #9a0325!important;
+	background: #a90329;
+	color: #fff
+}
+
+.jarviswidget-color-red .nav-tabs li:not(.active) a,
+.jarviswidget-color-red>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-red .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-redLight>header {
+	border-color: #9c5353!important;
+	background: #a65858;
+	color: #fff
+}
+
+.jarviswidget-color-redLight .nav-tabs li:not(.active) a,
+.jarviswidget-color-redLight>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-redLight .nav-tabs li a:hover {
+	color: #333!important
+}
+
+.jarviswidget-color-white>header {
+	border-color: #ccc!important;
+	background: #fff;
+	color: #666
+}
+
+.jarviswidget-color-white .nav-tabs li a:hover,
+.jarviswidget-color-white .nav-tabs li:not(.active) a,
+.jarviswidget-color-white>header>.jarviswidget-ctrls a {
+	color: gray!important
+}
+
+.jarviswidget-color-greenDark>header {
+	border-color: #436043!important;
+	background: #496949;
+	color: #fff
+}
+
+.jarviswidget-color-greenDark .nav-tabs li:not(.active) a,
+.jarviswidget-color-greenDark>header>.jarviswidget-ctrls a {
+	color: #fff!important
+}
+
+.jarviswidget-color-greenDark .nav-tabs li a:hover {
+	color: #333!important
+}
+
+ul.pagination{
+	margin:0px !important;
+	
+}
+
+
+
+
+
+
