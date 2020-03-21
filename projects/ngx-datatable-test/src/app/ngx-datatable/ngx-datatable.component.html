@@ -1,21 +1,34 @@
+
+<div  color="darken" class="jarviswidget jarviswidget-sortable jarviswidget-color-darken">
+    <header>
+        <span class="widget-icon"> 
+            <i class="fa fa-table"></i> 
+        </span>
+        <h2>Data Tables</h2>
+       
+    </header>
+    <div>
+      <div class="widget-body no-padding">
 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-    <div class="dt-toolbar">
+    <div class="dt-toolbar" style="margin-top: 5px;">
         <div class="col-xs-12 col-sm-6">
             <div id="DataTables_Table_0_filter" class="dataTables_filter">
                 <label>
-                    <input type="search" 
+                    <input type="text" 
                     [(ngModel)]="searchText" 
                     (input)="onInputSearch()"
                     name="search"
+                    placeholder="Search"
                     autocomplete="off"
-                    class="form-control input-md" placeholder="" >
+                    style="border-radius: 0px;"
+                    class="form-control input-md"  />
                 </label>
             </div>
         </div>
         <div class="col-sm-6 col-xs-12  text-right">
             <div class="dataTables_length" >
                 <label>
-                    <select (change)="onChangeItemPerPage()"  [(ngModel)]="itemPerPage" name="itemPerPage" class="form-control" id="exampleFormControlSelect1">
+                    <select (change)="onChangeItemPerPage()" style="border-radius: 0px;" [(ngModel)]="itemPerPage" name="itemPerPage" class="form-control" id="exampleFormControlSelect1">
                         <option *ngFor="let item of itemPerPageDDL" [ngValue]="item">{{item}}</option>
                     </select>
                 </label>
@@ -42,6 +55,10 @@
             <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
         </div>
     </div>
+</div>
+
+</div>
+</div>
 </div>
 
 
