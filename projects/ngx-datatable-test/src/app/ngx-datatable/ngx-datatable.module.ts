@@ -6,10 +6,10 @@ import { NgxDatatableComponent } from './ngx-datatable.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SearchPipe } from '../pipe/search.pipe';
-
+import { SortPipe } from '../pipe/sort.pipe';
 
 @NgModule({
-  declarations: [NgxDatatableComponent, SearchPipe],
+  declarations: [NgxDatatableComponent, SearchPipe, SortPipe],
   imports: [
     FormsModule,
       BrowserModule,

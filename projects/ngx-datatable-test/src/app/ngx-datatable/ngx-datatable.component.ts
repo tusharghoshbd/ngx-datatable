@@ -15,10 +15,14 @@ export class NgxDatatableComponent implements OnInit {
     itemPerPage = 10;
     itemPerPageDDL:any = [10,20,50,100];
     currentPage = 1;
+    orderBy: { order: string, key: string } ={order:'', key:''};
     constructor() { }
 
     ngOnInit() {
-        //console.log(this.columns);
+        this.columns.map((item) => { 
+            item['sorting'] = item.hasOwnProperty('sorting') ? item['sorting'] : true;
+            item['sortingOrder'] = '';
+        })
     }
 
     onInputSearch(){
@@ -26,6 +30,15 @@ export class NgxDatatableComponent implements OnInit {
     }
     onChangeItemPerPage(){
         this.currentPage = 1;
+    }
+    onClickOrderBy(colItem: any, index:number) { 
+        if (colItem.sorting == true) { 
+            this.columns.map((item) => { item.sortingOrder = ''})
+            this.orderBy.order = this.orderBy.order == 'asc' ? 'desc' : 'asc';
+            this.orderBy.key = colItem.key;
+            this.columns[index]['sortingOrder'] = this.orderBy.order;
+        }
+        //console.log(this.orderBy);
     }
     identify(index, item) {
         return index;
