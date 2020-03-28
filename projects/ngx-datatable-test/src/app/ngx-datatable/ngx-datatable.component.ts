@@ -31,12 +31,11 @@ export class NgxDatatableComponent implements OnInit {
 
         /** subscription list */
         this.dataShowingService.dataShowingSubject.subscribe(subData => {
-            console.log(subData);
+            //console.log(subData);
             subData['itemPerPage'] = subData.hasOwnProperty('itemPerPage') ? subData.itemPerPage : this.itemPerPage;
             subData['currentPage'] = subData.hasOwnProperty('currentPage') ? subData.currentPage : this.currentPage;
-            subData['len'] = subData.hasOwnProperty('len') ? subData.len : this.data.length;
+            subData['len'] = subData.hasOwnProperty('len') ? subData.len : this.dataShowing.len;
             this.dataShowingFn(subData.currentPage, subData.itemPerPage, subData.len)
-            
         });
 
         
