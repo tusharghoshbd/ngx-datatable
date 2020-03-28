@@ -8,7 +8,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SortPipe implements PipeTransform {
 
     transform(array: any[], filter: { order: string, key: string }): any {
-        //console.log("sort pipe"+ JSON.stringify( filter));
+        // console.log("sort pipe" + JSON.stringify(filter));
+        // console.log(array);
         if (!filter.key || filter.key === '') {
             return array;
         }
@@ -20,6 +21,7 @@ export class SortPipe implements PipeTransform {
         } else {
             return array.sort((a, b) => this.compare(b, a, filter.key));
         }
+
     }
 
     private compare(a: any, b: any, key: string): number {

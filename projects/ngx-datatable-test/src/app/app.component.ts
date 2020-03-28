@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     title = 'ngx-datatable-test';
+    options = {
+        rowClickEvent: true
+    }
     data = [
         {
             "id": "1",
@@ -250,10 +253,15 @@ export class AppComponent {
         }
     ];
     columns = [{ key: 'id', title:"ID" }, 
-            { key: 'name', title:'Name', sorting:false }, 
+            { key: 'name', title:'Name', sorting:true }, 
             { key: 'phone', title:'Phone' }, 
             { key: 'company', title:'Company' }, 
             { key: 'zip', title:'ZIP' }, 
             { key: 'city', title:'City' }, 
-            { key: 'date', title:'Date' }]
+        { key: 'date', title: 'Date' }]
+    
+    
+    onRowClick(item: any) { 
+        alert(JSON.stringify(item));
+    }
 }

@@ -49,21 +49,22 @@
         </thead>
         <tbody>
             <tr  *ngFor="let rowItem of data 
-                | sort:orderBy 
                 | search:searchText 
+                | sort:orderBy 
                 | paginate: { itemsPerPage: itemPerPage, currentPage:currentPage }; 
                 trackBy: identify; let i = index;" 
-                [ngClass]="{odd:i%2}">
+                [ngClass]="{odd:i%2, 'cus-cursor-pointer':options.rowClickEvent}" 
+                (click)="onRowClick(rowItem)" >
                 <td *ngFor="let colItem of columns;">{{rowItem[colItem.key]}}</td>
             </tr>
         </tbody>
     </table>
     <div class="dt-toolbar-footer">
         <div class="col-sm-6 col-xs-12 hidden-xs">
-            <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 2 of 2 entries</div>
+            <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing {{dataShowing.start}} to {{dataShowing.end}} of {{dataShowing.len}} entries</div>
         </div>
         <div class="col-xs-12 col-sm-6 text-right">
-            <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+            <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
         </div>
     </div>
 </div>

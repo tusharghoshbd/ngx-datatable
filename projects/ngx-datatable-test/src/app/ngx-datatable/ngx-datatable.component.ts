@@ -1,4 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
+import { DataShowingService } from '../services/data-showing.service';
 
 @Component({
     selector: 'ngx-datatable',
@@ -6,23 +8,38 @@ import { Component, OnInit,Input } from '@angular/core';
     styleUrls: ['./ngx-datatable.component.css']
   })
 export class NgxDatatableComponent implements OnInit {
-
+    private ngUnsubscribe: Subject<void> = new Subject<void>();
     @Input() data:any[];
     @Input() columns:any[];
     @Input() options: any;
-    
+    @Output() rowClick: EventEmitter<any> = new EventEmitter<any>();
+
     searchText: string = "";
     itemPerPage = 10;
     itemPerPageDDL:any = [10,20,50,100];
     currentPage = 1;
-    orderBy: { order: string, key: string } ={order:'', key:''};
-    constructor() { }
+    orderBy: { order: string, key: string } = { order: '', key: '' };
+    dataShowing: {start:number, end:number, len:number} = {start:0, end:0, len:0}
+    constructor(private dataShowingService: DataShowingService) { }
 
     ngOnInit() {
         this.columns.map((item) => { 
             item['sorting'] = item.hasOwnProperty('sorting') ? item['sorting'] : true;
             item['sortingOrder'] = '';
         })
+        this.dataShowingFn(this.currentPage,  this.itemPerPage, this.data.length)
+
+        /** subscription list */
+        this.dataShowingService.dataShowingSubject.subscribe(subData => {
+            console.log(subData);
+            subData['itemPerPage'] = subData.hasOwnProperty('itemPerPage') ? subData.itemPerPage : this.itemPerPage;
+            subData['currentPage'] = subData.hasOwnProperty('currentPage') ? subData.currentPage : this.currentPage;
+            subData['len'] = subData.hasOwnProperty('len') ? subData.len : this.data.length;
+            this.dataShowingFn(subData.currentPage, subData.itemPerPage, subData.len)
+            
+        });
+
+        
     }
 
     onInputSearch(){
@@ -30,6 +47,11 @@ export class NgxDatatableComponent implements OnInit {
     }
     onChangeItemPerPage(){
         this.currentPage = 1;
+        this.dataShowingService.setSataShowingSubject({ 'currentPage': this.currentPage, 'itemPerPage':this.itemPerPage });
+    }
+    onPageChange(currentPage) { 
+        this.currentPage = currentPage;
+        this.dataShowingService.setSataShowingSubject({ 'currentPage': currentPage });
     }
     onClickOrderBy(colItem: any, index:number) { 
         if (colItem.sorting == true) { 
@@ -40,7 +62,16 @@ export class NgxDatatableComponent implements OnInit {
         }
         //console.log(this.orderBy);
     }
+    onRowClick(item: any) { 
+        if(this.options.rowClickEvent)
+            this.rowClick.emit(item);
+    }
     identify(index, item) {
         return index;
+    }
+    private dataShowingFn(currentPage, itemPerPage, length) {
+        this.dataShowing.start = length == 0 ? 0: ((currentPage-1) * itemPerPage)+1;
+        this.dataShowing.end = currentPage * itemPerPage >length ? length : currentPage * itemPerPage ;
+        this.dataShowing.len = length;
     }
 }

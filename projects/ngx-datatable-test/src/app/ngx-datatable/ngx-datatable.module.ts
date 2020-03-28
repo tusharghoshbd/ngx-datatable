@@ -8,6 +8,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchPipe } from '../pipe/search.pipe';
 import { SortPipe } from '../pipe/sort.pipe';
 
+import { DataShowingService } from '../services/data-showing.service';
+
 @NgModule({
   declarations: [NgxDatatableComponent, SearchPipe, SortPipe],
   imports: [
@@ -15,7 +17,8 @@ import { SortPipe } from '../pipe/sort.pipe';
       BrowserModule,
       CommonModule,
       NgxPaginationModule
-  ],
-  exports: [NgxDatatableComponent]
+    ],
+    providers: [DataShowingService],
+    exports: [NgxDatatableComponent]
 })
 export class NgxDatatableModule { }

@@ -1737,3 +1737,8 @@ ul.pagination{
     vertical-align: middle;
     width: 1em;
 } */
+
+
+.cus-cursor-pointer {
+    cursor: pointer;
+}
