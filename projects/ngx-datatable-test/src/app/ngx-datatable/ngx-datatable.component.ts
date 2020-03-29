@@ -25,6 +25,7 @@ export class NgxDatatableComponent implements OnInit {
     ngOnInit() {
         this.columns.map((item) => { 
             item['sorting'] = item.hasOwnProperty('sorting') ? item['sorting'] : true;
+            item['headAlign'] = item.hasOwnProperty('headAlign') ? item['headAlign'].toLowerCase() : 'left';
             item['sortingOrder'] = '';
         })
         this.dataShowingFn(this.currentPage,  this.itemPerPage, this.data.length)

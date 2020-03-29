@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
     title = 'ngx-datatable-test';
     options = {
-        rowClickEvent: true
+        rowClickEvent: false
     }
     data = [
         {
@@ -252,20 +252,20 @@ export class AppComponent {
             "country":"India"
         }
     ];
-    columns = [{ key: 'id', title:"ID", width:50 }, 
+    columns = [{ key: 'id', title:"ID", width:50,sorting: true }, 
             { key: 'name', title:'Name', width:100 }, 
+            { key: 'phone', title:'Phone', width:100, headAlign:'center' , sorting: true }, 
+            { key: 'company', title:'Company', width:200,sorting: true, cellAlign:'right', headAlign:'right' }, 
+            { key: 'zip', title: 'ZIP', sorting: false }, 
             { key: 'phone', title:'Phone', width:200 }, 
             { key: 'company', title:'Company', width:200 }, 
-        { key: 'zip', title: 'ZIP', sorting: false }, 
-        { key: 'phone', title:'Phone', width:200 }, 
-        { key: 'company', title:'Company', width:200 }, 
-        { key: 'zip', title:'ZIP', sorting:false }, 
-        { key: 'date', title: 'Date', sorting: false },
-        { key: 'zip', title: 'ZIP', sorting: false }, 
-        { key: 'phone', title:'Phone', width:200 }, 
-        { key: 'company', title:'Company', width:200 }, 
-        { key: 'zip', title:'ZIP', sorting:false }, 
-        { key: 'date', title: 'Date', sorting:false },
+            { key: 'zip', title:'ZIP', sorting:false }, 
+            { key: 'date', title: 'Date', sorting: false },
+            { key: 'zip', title: 'ZIP', sorting: false }, 
+            { key: 'phone', title:'Phone', width:200 }, 
+            { key: 'company', title:'Company', width:200 }, 
+            { key: 'zip', title:'ZIP', sorting:false }, 
+            { key: 'date', title: 'Date', sorting:false },
             { key: 'date', title: 'Date', sorting:false }]
     
     

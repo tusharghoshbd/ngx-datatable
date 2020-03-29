@@ -44,6 +44,8 @@
                         *ngFor="let item of columns; let i = index; trackBy: identify"
                         (click)="onClickOrderBy(item, i)"
                         [style.min-width]="item.width+'px'"
+                        [style.text-align]="item.headAlign"
+                        [style.padding-right]="item.sorting && item.headAlign == 'right' ? '25px': '10px'"
                         [class.zui-sticky-col]="i==0" >
                         {{item.title}} 
                     </th>
@@ -59,6 +61,7 @@
                     (click)="onRowClick(rowItem)" >
                     <td *ngFor="let colItem of columns;let j=index;" 
                         [style.min-width]="colItem.width+'px'" 
+                        [style.text-align]="colItem.cellAlign"
                         [class.zui-sticky-col]="j==0">
                         {{rowItem[colItem.key]}}
                     </td>
@@ -67,7 +70,7 @@
         </table>
     </div>
 </div>
-    <div class="dt-toolbar-footer">
+    <div class="dt-toolbar-footer" style="margin-top: 5px;">
         <div class="col-sm-6 col-xs-12 hidden-xs">
             <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing {{dataShowing.start}} to {{dataShowing.end}} of {{dataShowing.len}} entries</div>
         </div>
