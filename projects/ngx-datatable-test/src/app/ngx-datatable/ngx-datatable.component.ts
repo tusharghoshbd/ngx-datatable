@@ -31,7 +31,6 @@ export class NgxDatatableComponent implements OnInit {
 
         /** subscription list */
         this.dataShowingService.dataShowingSubject.subscribe(subData => {
-            //console.log(subData);
             subData['itemPerPage'] = subData.hasOwnProperty('itemPerPage') ? subData.itemPerPage : this.itemPerPage;
             subData['currentPage'] = subData.hasOwnProperty('currentPage') ? subData.currentPage : this.currentPage;
             subData['len'] = subData.hasOwnProperty('len') ? subData.len : this.dataShowing.len;
@@ -59,7 +58,6 @@ export class NgxDatatableComponent implements OnInit {
             this.orderBy.key = colItem.key;
             this.columns[index]['sortingOrder'] = this.orderBy.order;
         }
-        //console.log(this.orderBy);
     }
     onRowClick(item: any) { 
         if(this.options.rowClickEvent)

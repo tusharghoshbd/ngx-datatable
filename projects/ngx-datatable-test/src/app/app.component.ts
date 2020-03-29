@@ -252,13 +252,21 @@ export class AppComponent {
             "country":"India"
         }
     ];
-    columns = [{ key: 'id', title:"ID" }, 
-            { key: 'name', title:'Name', sorting:true }, 
-            { key: 'phone', title:'Phone' }, 
-            { key: 'company', title:'Company' }, 
-            { key: 'zip', title:'ZIP' }, 
-            { key: 'city', title:'City' }, 
-        { key: 'date', title: 'Date' }]
+    columns = [{ key: 'id', title:"ID", width:50 }, 
+            { key: 'name', title:'Name', width:100 }, 
+            { key: 'phone', title:'Phone', width:200 }, 
+            { key: 'company', title:'Company', width:200 }, 
+        { key: 'zip', title: 'ZIP', sorting: false }, 
+        { key: 'phone', title:'Phone', width:200 }, 
+        { key: 'company', title:'Company', width:200 }, 
+        { key: 'zip', title:'ZIP', sorting:false }, 
+        { key: 'date', title: 'Date', sorting: false },
+        { key: 'zip', title: 'ZIP', sorting: false }, 
+        { key: 'phone', title:'Phone', width:200 }, 
+        { key: 'company', title:'Company', width:200 }, 
+        { key: 'zip', title:'ZIP', sorting:false }, 
+        { key: 'date', title: 'Date', sorting:false },
+            { key: 'date', title: 'Date', sorting:false }]
     
     
     onRowClick(item: any) { 

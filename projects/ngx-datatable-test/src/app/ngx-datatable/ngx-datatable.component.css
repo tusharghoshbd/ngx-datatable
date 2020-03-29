@@ -1742,3 +1742,55 @@ ul.pagination{
 .cus-cursor-pointer {
     cursor: pointer;
 }
+
+table.dataTable{
+    margin-top: 0px !important;
+}
+
+
+.zui-table {
+    /* border: none;
+    border-right: solid 1px #DDEFEF;
+    border-collapse: separate;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif; */
+}
+.zui-table thead th {
+    /* background-color: #DDEFEF; */
+    /* border: none; */
+    /* color: #336B6B; */
+    padding: 10px;
+    /* border-top: 1px solid #ddd; */
+    /* text-align: left; */
+    /* text-shadow: 1px 1px 1px #fff; */
+    /* white-space: nowrap; */
+}
+.zui-table tbody td {
+    /* border-bottom: solid 1px #DDEFEF;
+    color: #333; */
+    padding: 10px;
+    /* text-shadow: 1px 1px 1px #fff;
+    white-space: nowrap; */
+}
+.zui-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.zui-scroller {
+    margin-left: 70px;
+    overflow-x: scroll;
+    /* padding-bottom: 5px; */
+
+}
+.zui-table .zui-sticky-col {
+    /* border-left: solid 1px #DDEFEF;
+    border-right: solid 1px #DDEFEF; */
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    left: 0;
+    position: absolute;
+    /* top: auto; */
+    /* width: 120px; */
+}
+/* https://jsfiddle.net/zinoui/BmLpV/  check this for collumn fixed */
