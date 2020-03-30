@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
     title = 'ngx-datatable-test';
@@ -19,7 +19,7 @@ export class AppComponent {
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -29,17 +29,17 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         },
         {
-            "id": "1",
+            "id": "123",
             "name": "qwBrendan",
             "phone": "1-724-406-2487",
             "company": "YEnim Commodo Limited",
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -49,7 +49,7 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         },
         {
             "id": "1",
@@ -59,7 +59,7 @@ export class AppComponent {
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -69,7 +69,7 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         },
         {
             "id": "1",
@@ -79,7 +79,7 @@ export class AppComponent {
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -89,7 +89,7 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         },
         {
             "id": "1",
@@ -99,7 +99,7 @@ export class AppComponent {
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -109,7 +109,7 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         },
         {
             "id": "1",
@@ -119,7 +119,7 @@ export class AppComponent {
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -129,7 +129,7 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         },
         {
             "id": "1",
@@ -139,7 +139,7 @@ export class AppComponent {
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -149,7 +149,7 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         },
         {
             "id": "1",
@@ -159,7 +159,7 @@ export class AppComponent {
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -169,7 +169,7 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         },
         {
             "id": "1",
@@ -179,7 +179,7 @@ export class AppComponent {
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -189,7 +189,7 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         },
         {
             "id": "1",
@@ -199,7 +199,7 @@ export class AppComponent {
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -209,7 +209,7 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         },
         {
             "id": "1",
@@ -219,7 +219,7 @@ export class AppComponent {
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -229,7 +229,7 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         },
         {
             "id": "1",
@@ -239,7 +239,7 @@ export class AppComponent {
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
-            "country":"Bangladesh"
+            "country": "Bangladesh"
         },
         {
             "id": "2",
@@ -249,27 +249,29 @@ export class AppComponent {
             "zip": "10312",
             "city": "Sautin",
             "date": "01/01/13",
-            "country":"India"
+            "country": "India"
         }
     ];
-    columns = [{ key: 'id', title:"ID", width:50,sorting: true }, 
-            { key: 'name', title:'Name', width:100 }, 
-            { key: 'phone', title:'Phone', width:100, headAlign:'center' , sorting: true }, 
-            { key: 'company', title:'Company', width:200,sorting: true, cellAlign:'right', headAlign:'right' }, 
-            { key: 'zip', title: 'ZIP', sorting: false }, 
-            { key: 'phone', title:'Phone', width:200 }, 
-            { key: 'company', title:'Company', width:200 }, 
-            { key: 'zip', title:'ZIP', sorting:false }, 
-            { key: 'date', title: 'Date', sorting: false },
-            { key: 'zip', title: 'ZIP', sorting: false }, 
-            { key: 'phone', title:'Phone', width:200 }, 
-            { key: 'company', title:'Company', width:200 }, 
-            { key: 'zip', title:'ZIP', sorting:false }, 
-            { key: 'date', title: 'Date', sorting:false },
-            { key: 'date', title: 'Date', sorting:false }]
-    
-    
-    onRowClick(item: any) { 
+    columns = [
+        { key: 'id', title: "ID", headAlign: 'left', width:50, sorting: true, pinned:true },
+        { key: 'name', title: 'Name', headAlign: 'left', width: 100, pinned:true },
+        { key: 'phone', title: 'Phone', headAlign: 'center', width: 100, sorting: true },
+        { key: 'company', title: 'Company', width: 200, sorting: true, cellAlign: 'right', headAlign: 'right' },
+        { key: 'zip', title: 'ZIP', sorting: false },
+        { key: 'phone', title: 'Phone', width: 200 },
+        { key: 'company', title: 'Company', width: 200 },
+        { key: 'zip', title: 'ZIP', sorting: false },
+        { key: 'date', title: 'Date', sorting: false },
+        { key: 'zip', title: 'ZIP', sorting: false },
+        // { key: 'phone', title: 'Phone', width: 200 },
+        // { key: 'company', title: 'Company', width: 200 },
+        // { key: 'zip', title: 'ZIP', sorting: false },
+        // { key: 'date', title: 'Date', sorting: false },
+        { key: 'date', title: 'Date', sorting: false }
+    ]
+
+
+    onRowClick(item: any) {
         alert(JSON.stringify(item));
     }
 }

@@ -35,44 +35,51 @@
     </div>
     <!--  style="overflow: auto; width:100%"  -->
     <div class="zui-wrapper">
-    <div class="zui-scroller">
-        <table _ngcontent-qqc-c1=""  class=" zui-table dataTable responsive table table-striped table-bordered table-hover" role="grid" aria-describedby="DataTables_Table_0_info" width="100%">
-            <thead _ngcontent-qqc-c0="">
-                <tr  role="row" >
-                    <!-- sorting_asc, sorting_desc -->
-                    <th  [ngClass]="{sorting:item.sorting==true, sorting_asc:item.sorting==true&&item.sortingOrder=='asc', sorting_desc:item.sorting==true&&item.sortingOrder=='desc'}" 
-                        *ngFor="let item of columns; let i = index; trackBy: identify"
-                        (click)="onClickOrderBy(item, i)"
-                        [style.min-width]="item.width+'px'"
-                        [style.text-align]="item.headAlign"
-                        [style.padding-right]="item.sorting && item.headAlign == 'right' ? '25px': '10px'"
-                        [class.zui-sticky-col]="i==0" >
-                        {{item.title}} 
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr  *ngFor="let rowItem of data 
-                    | search:searchText 
-                    | sort:orderBy 
-                    | paginate: { itemsPerPage: itemPerPage, currentPage:currentPage }; 
-                    trackBy: identify; let i = index;" 
-                    [ngClass]="{ 'cus-cursor-pointer':options.rowClickEvent}" 
-                    (click)="onRowClick(rowItem)" >
-                    <td *ngFor="let colItem of columns;let j=index;" 
-                        [style.min-width]="colItem.width+'px'" 
-                        [style.text-align]="colItem.cellAlign"
-                        [class.zui-sticky-col]="j==0">
-                        {{rowItem[colItem.key]}}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- class="zui-scroller" -->
+        <div class="zui-scroller" 
+            [style.margin-left]="styleParams.pinnedScollerMarginLeft+'px'"
+            >
+            <table _ngcontent-qqc-c1=""  class=" zui-table dataTable responsive table table-striped table-bordered table-hover" role="grid" aria-describedby="DataTables_Table_0_info" width="100%">
+                <thead _ngcontent-qqc-c0="">
+                    <tr  role="row" >
+                        <!-- sorting_asc, sorting_desc -->
+                        <th  [ngClass]="{sorting:item.sorting==true, sorting_asc:item.sorting==true&&item.sortingOrder=='asc', sorting_desc:item.sorting==true&&item.sortingOrder=='desc'}" 
+                            *ngFor="let item of columns; let i = index; trackBy: identify"
+                            (click)="onClickOrderBy(item, i)"
+                            [style.min-width]="item.width+'px'"
+                            [style.text-align]="item.headAlign"
+                            [style.padding-right]="item.sorting && item.headAlign == 'right' ? '25px': '10px'"
+                            [class.zui-sticky-col]="item.pinned"
+                            [style.margin-left]="item.pinnedMarginLeft+'px'"
+                             >
+                            {{item.title}} 
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  *ngFor="let rowItem of data 
+                        | search:searchText 
+                        | sort:orderBy 
+                        | paginate: { itemsPerPage: itemPerPage, currentPage:currentPage }; 
+                        trackBy: identify; let i = index;" 
+                        [ngClass]="{ 'cus-cursor-pointer':options.rowClickEvent}" 
+                        (click)="onRowClick(rowItem)" >
+                        <td *ngFor="let colItem of columns;let j=index;" 
+                            [style.min-width]="colItem.width+'px'" 
+                            [style.text-align]="colItem.cellAlign"
+                            [class.zui-sticky-col]="colItem.pinned"
+                            [style.margin-left]="colItem.pinnedMarginLeft+'px'"
+                            >
+                            {{rowItem[colItem.key]}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
     <div class="dt-toolbar-footer" style="margin-top: 5px;">
         <div class="col-sm-6 col-xs-12 hidden-xs">
-            <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing {{dataShowing.start}} to {{dataShowing.end}} of {{dataShowing.len}} entries</div>
+            <div >Showing {{dataShowing.start}} to {{dataShowing.end}} of {{dataShowing.len}} entries</div>
         </div>
         <div class="col-xs-12 col-sm-6 text-right">
             <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>

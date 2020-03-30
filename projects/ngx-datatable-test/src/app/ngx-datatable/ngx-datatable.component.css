@@ -1760,6 +1760,7 @@ table.dataTable{
     /* border: none; */
     /* color: #336B6B; */
     padding: 10px;
+    margin-top: -1px;
     /* border-top: 1px solid #ddd; */
     /* text-align: left; */
     /* text-shadow: 1px 1px 1px #fff; */
@@ -1778,19 +1779,27 @@ table.dataTable{
     width: 100%;
 }
 .zui-scroller {
-    margin-left: 70px;
-    overflow-x: scroll;
-    /* padding-bottom: 5px; */
-
+    /* margin-left: 100px; */
+    overflow-x: auto;
+    /* padding-bottom: 5px; */  
 }
 .zui-table .zui-sticky-col {
-    /* border-left: solid 1px #DDEFEF;
-    border-right: solid 1px #DDEFEF; */
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #ddd;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     left: 0;
     position: absolute;
-    /* top: auto; */
-    /* width: 120px; */
+    background-color: #f1f1f1;
 }
 /* https://jsfiddle.net/zinoui/BmLpV/  check this for collumn fixed */
+
+
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border-bottom-width: 0px;
+}
+
+.pinned-column-bg-color {
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+}
