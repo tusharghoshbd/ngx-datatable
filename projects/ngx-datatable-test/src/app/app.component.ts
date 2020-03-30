@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
     title = 'ngx-datatable-test';
     options = {
-        rowClickEvent: false
+        rowClickEvent: true
     }
     data = [
         {
@@ -253,8 +253,8 @@ export class AppComponent {
         }
     ];
     columns = [
-        { key: 'id', title: "ID", headAlign: 'left', width:50, sorting: true, pinned:true },
-        { key: 'name', title: 'Name', headAlign: 'left', width: 100, pinned:true },
+        { key: 'id', title: "ID", headAlign: 'left', width: 50, sorting: true, pinned: true },
+        { key: 'name', title: 'Name', headAlign: 'left', width: 100, pinned: true   },
         { key: 'phone', title: 'Phone', headAlign: 'center', width: 100, sorting: true },
         { key: 'company', title: 'Company', width: 200, sorting: true, cellAlign: 'right', headAlign: 'right' },
         { key: 'zip', title: 'ZIP', sorting: false },
@@ -273,5 +273,9 @@ export class AppComponent {
 
     onRowClick(item: any) {
         alert(JSON.stringify(item));
+    }
+
+    onClickBtn(){
+        alert("Hi Add Button !!!!!");
     }
 }

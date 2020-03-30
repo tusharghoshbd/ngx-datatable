@@ -1,94 +1,83 @@
 
-<div  color="darken" class="jarviswidget jarviswidget-sortable jarviswidget-color-darken">
-    <header>
-        <span class="widget-icon"> 
-            <i class="fa fa-table"></i> 
-        </span>
-        <h2>Data Tables</h2>
-       
+<div  color="darken" class="jarviswidget">
+    <header *ngIf="headerRef">
+        <ngx-header>
+            <ng-content select="ngx-header"></ng-content>
+        </ngx-header>
     </header>
-    <div>
-      <div class="widget-body no-padding">
-<div  class="dataTables_wrapper form-inline dt-bootstrap no-footer responsive">
-    <div class="dt-toolbar" style="margin-top: 5px;">
-        <div class="col-xs-6 col-sm-6">
-            <div id="DataTables_Table_0_filter" class="dataTables_filter" style="text-align: left;">
-                <label>
-                    <input type="text" 
-                    [(ngModel)]="searchText" 
-                    (input)="onInputSearch()"
-                    name="search"
-                    placeholder="Search"
-                    autocomplete="off"
-                    style="border-radius: 0px;"
-                    class="form-control input-md"  />
+    <div  class="dataTables_wrapper form-inline dt-bootstrap no-footer responsive">
+        <div class="dt-toolbar" style="margin-top: 5px;">
+            <div class="col-xs-6 col-sm-6">
+                <div id="DataTables_Table_0_filter" class="dataTables_filter" style="text-align: left;">
+                    <label>
+                        <input type="text" 
+                        [(ngModel)]="searchText" 
+                        (input)="onInputSearch()"
+                        name="search"
+                        placeholder="Search"
+                        autocomplete="off"
+                        style="border-radius: 0px;"
+                        class="form-control input-md"  />
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-6  text-right">
+                <label style="font-weight: 100;">
+                    <select (change)="onChangeItemPerPage()" style="border-radius: 0px;" [(ngModel)]="itemPerPage" name="itemPerPage" class="form-control" id="exampleFormControlSelect1">
+                        <option *ngFor="let item of itemPerPageDDL" [ngValue]="item">{{item}}</option>
+                    </select>
                 </label>
             </div>
         </div>
-        <div class="col-sm-6 col-xs-6  text-right">
-            <label style="font-weight: 100;">
-                <select (change)="onChangeItemPerPage()" style="border-radius: 0px;" [(ngModel)]="itemPerPage" name="itemPerPage" class="form-control" id="exampleFormControlSelect1">
-                    <option *ngFor="let item of itemPerPageDDL" [ngValue]="item">{{item}}</option>
-                </select>
-            </label>
+        <div class="zui-wrapper">
+            <div class="zui-scroller" [style.margin-left]="styleParams.pinnedScollerMarginLeft+'px'" >
+                <table _ngcontent-qqc-c1=""  class=" zui-table dataTable responsive table table-striped table-bordered table-hover" role="grid" aria-describedby="DataTables_Table_0_info" width="100%">
+                    <thead _ngcontent-qqc-c0="">
+                        <tr  role="row" >
+                            <!-- sorting_asc, sorting_desc -->
+                            <th  [ngClass]="{sorting:item.sorting==true, sorting_asc:item.sorting==true&&item.sortingOrder=='asc', sorting_desc:item.sorting==true&&item.sortingOrder=='desc'}" 
+                                *ngFor="let item of columns; let i = index; trackBy: identify"
+                                (click)="onClickOrderBy(item, i)"
+                                [style.min-width]="item.width+'px'"
+                                [style.text-align]="item.headAlign"
+                                [style.padding-right]="item.sorting && item.headAlign == 'right' ? '25px': '10px'"
+                                [class.zui-sticky-col]="item.pinned"
+                                [style.margin-left]="item.pinnedMarginLeft+'px'"
+                                >
+                                {{item.title}} 
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr  *ngFor="let rowItem of data 
+                            | search:searchText 
+                            | sort:orderBy 
+                            | paginate: { itemsPerPage: itemPerPage, currentPage:currentPage }; 
+                            trackBy: identify; let i = index;" 
+                            [ngClass]="{ 'cus-cursor-pointer':options.rowClickEvent}" 
+                            (click)="onRowClick(rowItem)" >
+                            <td *ngFor="let colItem of columns;let j=index;" 
+                                [style.min-width]="colItem.width+'px'" 
+                                [style.text-align]="colItem.cellAlign"
+                                [class.zui-sticky-col]="colItem.pinned"
+                                [style.margin-left]="colItem.pinnedMarginLeft+'px'"
+                                >
+                                {{rowItem[colItem.key]}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="dt-toolbar-footer" style="margin-top: 5px;">
+            <div class="col-sm-6 col-xs-12 hidden-xs">
+                <div >Showing {{dataShowing.start}} to {{dataShowing.end}} of {{dataShowing.len}} entries</div>
+            </div>
+            <div class="col-xs-12 col-sm-6 text-right">
+                <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+            </div>
         </div>
     </div>
-    <!--  style="overflow: auto; width:100%"  -->
-    <div class="zui-wrapper">
-        <!-- class="zui-scroller" -->
-        <div class="zui-scroller" 
-            [style.margin-left]="styleParams.pinnedScollerMarginLeft+'px'"
-            >
-            <table _ngcontent-qqc-c1=""  class=" zui-table dataTable responsive table table-striped table-bordered table-hover" role="grid" aria-describedby="DataTables_Table_0_info" width="100%">
-                <thead _ngcontent-qqc-c0="">
-                    <tr  role="row" >
-                        <!-- sorting_asc, sorting_desc -->
-                        <th  [ngClass]="{sorting:item.sorting==true, sorting_asc:item.sorting==true&&item.sortingOrder=='asc', sorting_desc:item.sorting==true&&item.sortingOrder=='desc'}" 
-                            *ngFor="let item of columns; let i = index; trackBy: identify"
-                            (click)="onClickOrderBy(item, i)"
-                            [style.min-width]="item.width+'px'"
-                            [style.text-align]="item.headAlign"
-                            [style.padding-right]="item.sorting && item.headAlign == 'right' ? '25px': '10px'"
-                            [class.zui-sticky-col]="item.pinned"
-                            [style.margin-left]="item.pinnedMarginLeft+'px'"
-                             >
-                            {{item.title}} 
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr  *ngFor="let rowItem of data 
-                        | search:searchText 
-                        | sort:orderBy 
-                        | paginate: { itemsPerPage: itemPerPage, currentPage:currentPage }; 
-                        trackBy: identify; let i = index;" 
-                        [ngClass]="{ 'cus-cursor-pointer':options.rowClickEvent}" 
-                        (click)="onRowClick(rowItem)" >
-                        <td *ngFor="let colItem of columns;let j=index;" 
-                            [style.min-width]="colItem.width+'px'" 
-                            [style.text-align]="colItem.cellAlign"
-                            [class.zui-sticky-col]="colItem.pinned"
-                            [style.margin-left]="colItem.pinnedMarginLeft+'px'"
-                            >
-                            {{rowItem[colItem.key]}}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="dt-toolbar-footer" style="margin-top: 5px;">
-        <div class="col-sm-6 col-xs-12 hidden-xs">
-            <div >Showing {{dataShowing.start}} to {{dataShowing.end}} of {{dataShowing.len}} entries</div>
-        </div>
-        <div class="col-xs-12 col-sm-6 text-right">
-            <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
-        </div>
-    </div>
-</div>
-
-</div>
-</div>
 </div>
 
 

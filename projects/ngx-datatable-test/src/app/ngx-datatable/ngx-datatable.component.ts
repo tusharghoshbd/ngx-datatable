@@ -1,17 +1,23 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ContentChild, AfterContentInit, TemplateRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataShowingService } from '../services/data-showing.service';
+import { HeaderComponent } from './header/header.component';
+
 
 @Component({
     selector: 'ngx-datatable',
     templateUrl: './ngx-datatable.component.html',
     styleUrls: ['./ngx-datatable.component.css']
 })
-export class NgxDatatableComponent implements OnInit {
+export class NgxDatatableComponent implements OnInit, AfterContentInit {
     private ngUnsubscribe: Subject<void> = new Subject<void>();
     @Input() data: any[];
     @Input() columns: any[];
     @Input() options: any;
+
+    //@ContentChild('headerRef',{static: false}) headerRef: TemplateRef<any>;
+    @ContentChild(HeaderComponent, { static: false }) headerRef: HeaderComponent
+
     @Output() rowClick: EventEmitter<any> = new EventEmitter<any>();
 
     searchText: string = "";
@@ -30,13 +36,12 @@ export class NgxDatatableComponent implements OnInit {
             item['sorting'] = item.hasOwnProperty('sorting') ? item['sorting'] : true;
             item['headAlign'] = item.hasOwnProperty('headAlign') ? item['headAlign'].toLowerCase() : 'left';
             item['sortingOrder'] = '';
-            
-            if(item.hasOwnProperty('pinned') && item['pinned'] == true){
+
+            if (item.hasOwnProperty('pinned') && item['pinned'] == true) {
                 item['width'] = item.hasOwnProperty('width') ? item['width'] : 100;
                 item['pinnedMarginLeft'] = this.styleParams.pinnedScollerMarginLeft;
-                this.styleParams.pinnedScollerMarginLeft += parseInt(item['width'])+20;
+                this.styleParams.pinnedScollerMarginLeft += parseInt(item['width']) + 20;
             }
-            
         })
 
         this.dataShowingFn(this.currentPage, this.itemPerPage, this.data.length)
@@ -49,6 +54,9 @@ export class NgxDatatableComponent implements OnInit {
             this.dataShowingFn(subData.currentPage, subData.itemPerPage, subData.len)
         });
 
+    }
+    ngAfterContentInit() {
+        console.log(this.headerRef);
 
     }
 
