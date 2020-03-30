@@ -15,7 +15,7 @@ export class AppComponent {
             "id": "1",
             "name": "Brendan",
             "phone": "1-724-406-2487",
-            "company": "ZEnim Commodo Limited",
+            "company": "ZEnim Commodo Limited Enim Commodo Limited Enim Commodo LimitedEnim Commodo Limited",
             "zip": "98611",
             "city": "Norman",
             "date": "02/13/14",
@@ -253,13 +253,13 @@ export class AppComponent {
         }
     ];
     columns = [
-        { key: 'id', title: "ID", headAlign: 'left', width: 50, sorting: true, pinned: true },
-        { key: 'name', title: 'Name', headAlign: 'left', width: 100, pinned: true   },
+        { key: 'id', title: "ID", headAlign: 'left', width: 50, sorting: true, pinned: false },
+        { key: 'name', title: 'Name', headAlign: 'left', width: 100, pinned: false   },
         { key: 'phone', title: 'Phone', headAlign: 'center', width: 100, sorting: true },
-        { key: 'company', title: 'Company', width: 200, sorting: true, cellAlign: 'right', headAlign: 'right' },
+        { key: 'company', title: 'Company', width: 300, sorting: true, cellAlign: 'right', headAlign: 'right', noWrap:true },
         { key: 'zip', title: 'ZIP', sorting: false },
         { key: 'phone', title: 'Phone', width: 200 },
-        { key: 'company', title: 'Company', width: 200 },
+        { key: 'company', title: 'Company', width: 200, noWrap:true },
         { key: 'zip', title: 'ZIP', sorting: false },
         { key: 'date', title: 'Date', sorting: false },
         { key: 'zip', title: 'ZIP', sorting: false },

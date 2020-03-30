@@ -42,6 +42,7 @@
                                 [style.text-align]="item.headAlign"
                                 [style.padding-right]="item.sorting && item.headAlign == 'right' ? '25px': '10px'"
                                 [class.zui-sticky-col]="item.pinned"
+                        
                                 [style.margin-left]="item.pinnedMarginLeft+'px'"
                                 >
                                 {{item.title}} 
@@ -58,6 +59,8 @@
                             (click)="onRowClick(rowItem)" >
                             <td *ngFor="let colItem of columns;let j=index;" 
                                 [style.min-width]="colItem.width+'px'" 
+                                [style.max-width]="colItem.width+'px'" 
+                                [class.wrap]="colItem.noWrap"
                                 [style.text-align]="colItem.cellAlign"
                                 [class.zui-sticky-col]="colItem.pinned"
                                 [style.margin-left]="colItem.pinnedMarginLeft+'px'"

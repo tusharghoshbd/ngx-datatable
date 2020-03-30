@@ -498,3 +498,9 @@ table.dataTable{
     border: 1px solid #404040;
     color:white
 }
+
+.wrap{ 
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}
