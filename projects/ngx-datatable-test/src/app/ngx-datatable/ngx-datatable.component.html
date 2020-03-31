@@ -35,37 +35,49 @@
                     <thead _ngcontent-qqc-c0="">
                         <tr  role="row" >
                             <!-- sorting_asc, sorting_desc -->
-                            <th  [ngClass]="{sorting:item.sorting==true, sorting_asc:item.sorting==true&&item.sortingOrder=='asc', sorting_desc:item.sorting==true&&item.sortingOrder=='desc'}" 
-                                *ngFor="let item of columns; let i = index; trackBy: identify"
-                                (click)="onClickOrderBy(item, i)"
-                                [style.min-width]="item.width+'px'"
-                                [style.text-align]="item.headAlign"
-                                [style.padding-right]="item.sorting && item.headAlign == 'right' ? '25px': '10px'"
-                                [class.zui-sticky-col]="item.pinned"
-                        
-                                [style.margin-left]="item.pinnedMarginLeft+'px'"
+                            <th  [ngClass]="{sorting:column.sorting==true, sorting_asc:column.sorting==true&&column.sortingOrder=='asc', sorting_desc:column.sorting==true&&column.sortingOrder=='desc'}" 
+                                *ngFor="let column of columns; let i = index; trackBy: identify"
+                                (click)="onClickOrderBy(column, i)"
+                                [style.min-width]="column.width+'px'"
+                                [style.max-width]="column.width+'px'" 
+                                [style.text-align]="column.align && column.align.head"
+                                [style.padding-right]="column.sorting && column.align && column.align.head == 'right' ? '25px': '10px'"
+                                [class.zui-sticky-col]="column.pinned"
+                                [class.wrap]="column.noWrap && column.noWrap.head"
+                                [style.margin-left]="column.pinnedMarginLeft+'px'"
                                 >
-                                {{item.title}} 
+                                <span [innerHTML]="column.title"></span>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr  *ngFor="let rowItem of data 
+                        <tr  *ngFor="let row of data 
                             | search:searchText 
                             | sort:orderBy 
                             | paginate: { itemsPerPage: itemPerPage, currentPage:currentPage }; 
                             trackBy: identify; let i = index;" 
                             [ngClass]="{ 'cus-cursor-pointer':options.rowClickEvent}" 
-                            (click)="onRowClick(rowItem)" >
-                            <td *ngFor="let colItem of columns;let j=index;" 
-                                [style.min-width]="colItem.width+'px'" 
-                                [style.max-width]="colItem.width+'px'" 
-                                [class.wrap]="colItem.noWrap"
-                                [style.text-align]="colItem.cellAlign"
-                                [class.zui-sticky-col]="colItem.pinned"
-                                [style.margin-left]="colItem.pinnedMarginLeft+'px'"
+                            (click)="onRowClick(row)" >
+                            <td *ngFor="let column of columns;let j=index;" 
+                                [style.min-width]="column.width+'px'" 
+                                [style.max-width]="column.width+'px'" 
+                                [class.wrap]="column.noWrap && column.noWrap.body"
+                                [style.text-align]="column.align && column.align.body"
+                                [class.zui-sticky-col]="column.pinned"
+                                [style.margin-left]="column.pinnedMarginLeft+'px'"
                                 >
-                                {{rowItem[colItem.key]}}
+                                <ng-container *ngIf="!column.cellTemplate">{{row[column.key]}}</ng-container>
+                                <ng-container
+                                    *ngIf="column.cellTemplate"
+                                    [ngTemplateOutlet]="column.cellTemplate"
+                                    [ngTemplateOutletContext]="{
+                                    $implicit: row,
+                                    rowIndex: i,
+                                    columnValue: row[column.key]
+                                    }"
+                                >
+                                </ng-container>
+                                
                             </td>
                         </tr>
                     </tbody>
@@ -74,7 +86,7 @@
         </div>
         <div class="dt-toolbar-footer" style="margin-top: 5px;">
             <div class="col-sm-6 col-xs-12 hidden-xs">
-                <div >Showing {{dataShowing.start}} to {{dataShowing.end}} of {{dataShowing.len}} entries</div>
+                <div>Showing {{dataShowing.start}} to {{dataShowing.end}} of {{dataShowing.len}} entries</div>
             </div>
             <div class="col-xs-12 col-sm-6 text-right">
                 <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>

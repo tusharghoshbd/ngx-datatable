@@ -42,6 +42,7 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
                 item['pinnedMarginLeft'] = this.styleParams.pinnedScollerMarginLeft;
                 this.styleParams.pinnedScollerMarginLeft += parseInt(item['width']) + 20;
             }
+            console.log(item);
         })
 
         this.dataShowingFn(this.currentPage, this.itemPerPage, this.data.length)

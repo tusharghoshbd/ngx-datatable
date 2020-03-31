@@ -21,6 +21,12 @@
                 </div>
             </div>
         </ngx-header>
+
+        <ng-template #actionTpl let-row let-rowIndex="rowIndex" let-columnValue="columnValue">
+            <!--{{row | json}} {{rowIndex}} {{columnValue}} -->
+            <a href="javascript:void(0)" (click)="remove()">Edit</a> | <a href="javascript:void(0)" (click)="remove()">Delete</a>
+        </ng-template>
+        
     </ngx-datatable>
 </div>
 
