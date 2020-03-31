@@ -5,23 +5,21 @@
             <ng-content select="ngx-header"></ng-content>
         </ngx-header>
     </header>
-    <div  class="dataTables_wrapper form-inline dt-bootstrap no-footer responsive">
-        <div class="dt-toolbar" style="margin-top: 5px;">
-            <div class="col-xs-6 col-sm-6">
-                <div id="DataTables_Table_0_filter" class="dataTables_filter" style="text-align: left;">
-                    <label>
-                        <input type="text" 
-                        [(ngModel)]="searchText" 
-                        (input)="onInputSearch()"
-                        name="search"
-                        placeholder="Search"
-                        autocomplete="off"
-                        style="border-radius: 0px;"
-                        class="form-control input-md"  />
-                    </label>
-                </div>
+    <div  class="dataTables_wrapper">
+        <div class="row no-row-margin" style="margin-top: 5px;">
+            <div class="col-xs-6 col-sm-6 col-6 text-left">
+                <label style="font-weight: 100;">
+                    <input type="text" 
+                    [(ngModel)]="searchText" 
+                    (input)="onInputSearch()"
+                    name="search"
+                    placeholder="Search"
+                    autocomplete="off"
+                    style="border-radius: 0px;"
+                    class="form-control input-md"  />
+                </label>
             </div>
-            <div class="col-sm-6 col-xs-6  text-right">
+            <div class="col-sm-6 col-xs-6 col-6 text-right">
                 <label style="font-weight: 100;">
                     <select (change)="onChangeItemPerPage()" style="border-radius: 0px;" [(ngModel)]="itemPerPage" name="itemPerPage" class="form-control" id="exampleFormControlSelect1">
                         <option *ngFor="let item of itemPerPageDDL" [ngValue]="item">{{item}}</option>
@@ -31,12 +29,10 @@
         </div>
         <div class="zui-wrapper">
             <div class="zui-scroller" [style.margin-left]="styleParams.pinnedScollerMarginLeft+'px'" >
-                <table _ngcontent-qqc-c1=""  class=" zui-table dataTable responsive table table-striped table-bordered table-hover" role="grid" aria-describedby="DataTables_Table_0_info" width="100%">
+                <table _ngcontent-qqc-c1=""  class=" zui-table dataTable  table table-striped table-bordered table-hover" role="grid" aria-describedby="DataTables_Table_0_info" width="100%">
                     <thead _ngcontent-qqc-c0="">
                         <tr  role="row" >
-                            <!-- sorting_asc, sorting_desc -->
-                            <th  [ngClass]="{sorting:column.sorting==true, sorting_asc:column.sorting==true&&column.sortingOrder=='asc', sorting_desc:column.sorting==true&&column.sortingOrder=='desc'}" 
-                                *ngFor="let column of columns; let i = index; trackBy: identify"
+                            <th  *ngFor="let column of columns; let i = index; trackBy: identify"
                                 (click)="onClickOrderBy(column, i)"
                                 [style.min-width]="column.width+'px'"
                                 [style.max-width]="column.width+'px'" 
@@ -46,7 +42,13 @@
                                 [class.wrap]="column.noWrap && column.noWrap.head"
                                 [style.margin-left]="column.pinnedMarginLeft+'px'"
                                 >
-                                <span [innerHTML]="column.title"></span>
+                                <span [innerHTML]="column.title" 
+                                [class.sort-by] = "column.sorting && column.sortingOrder==''"
+                                [class.sort-by-asc] = "column.sorting && column.sortingOrder=='asc'"
+                                [class.sort-by-desc] = "column.sorting && column.sortingOrder=='desc'"
+                                 ></span>  
+                                <!-- [ngClass]="{sort-by:column.sorting==true, sort-by-asc:column.sorting==true&&column.sortingOrder=='asc', sort-by-desc:column.sorting==true&&column.sortingOrder=='desc'}"  -->
+                                <!-- <div class="sorting"style="display: inline;"><span>&#8593;</span> <span>&#8595;</span></div>	 -->
                             </th>
                         </tr>
                     </thead>
@@ -84,11 +86,11 @@
                 </table>
             </div>
         </div>
-        <div class="dt-toolbar-footer" style="margin-top: 5px;">
-            <div class="col-sm-6 col-xs-12 hidden-xs">
+        <div class="row no-row-margin" style="margin-top: 5px;">
+            <div class="col-sm-6 col-xs-12 col-12 custom-data-entries-align">
                 <div>Showing {{dataShowing.start}} to {{dataShowing.end}} of {{dataShowing.len}} entries</div>
             </div>
-            <div class="col-xs-12 col-sm-6 text-right">
+            <div class="col-xs-12 col-sm-6 col-12 custom-pagination-align">
                 <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
             </div>
         </div>
