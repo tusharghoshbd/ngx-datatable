@@ -41,6 +41,17 @@ data:any[] = [];
 columns: any = {};
 
 ```
+
+#### Module file
+```ts
+import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
+
+@NgModule({
+   imports:[ ... NgxDatatableModule ]
+})
+
+```
+
 ## Features
 * Filtering
 * Pagination
@@ -55,6 +66,7 @@ columns: any = {};
 * Row click event
 * Auto scrolling
 * Easy to integrate and less CSS work
+* Responsive
 
 **All features examples are available in demo.** [Demo in stackblitz](https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts)
 
