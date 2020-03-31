@@ -2,11 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({
-    selector: 'ngx-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css']
+    selector: 'ngx-caption',
+    templateUrl: './caption.component.html',
+    styleUrls: ['./caption.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class CaptionComponent implements OnInit {
     
     constructor() { }
 

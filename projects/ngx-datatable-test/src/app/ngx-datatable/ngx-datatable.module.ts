@@ -5,7 +5,7 @@ import {CommonModule} from "@angular/common";
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { NgxDatatableComponent } from './ngx-datatable.component';
-import { HeaderComponent } from './header/header.component';
+import { CaptionComponent } from './caption/caption.component';
 
 
 
@@ -15,7 +15,7 @@ import { SortPipe } from '../pipe/sort.pipe';
 import { DataShowingService } from '../services/data-showing.service';
 
 @NgModule({
-  declarations: [NgxDatatableComponent, SearchPipe, SortPipe, HeaderComponent],
+  declarations: [NgxDatatableComponent, SearchPipe, SortPipe, CaptionComponent],
   imports: [
     FormsModule,
       BrowserModule,
@@ -23,6 +23,6 @@ import { DataShowingService } from '../services/data-showing.service';
       NgxPaginationModule
     ],
     providers: [DataShowingService],
-    exports: [NgxDatatableComponent, HeaderComponent]
+    exports: [NgxDatatableComponent, CaptionComponent]
 })
 export class NgxDatatableModule { }

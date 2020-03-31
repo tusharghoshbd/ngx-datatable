@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ContentChild, AfterContentInit, TemplateRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataShowingService } from '../services/data-showing.service';
-import { HeaderComponent } from './header/header.component';
+import { CaptionComponent } from './caption/caption.component';
 
 
 @Component({
@@ -11,12 +11,13 @@ import { HeaderComponent } from './header/header.component';
 })
 export class NgxDatatableComponent implements OnInit, AfterContentInit {
     private ngUnsubscribe: Subject<void> = new Subject<void>();
-    @Input() data: any[];
-    @Input() columns: any[];
+    @Input() data: any[] = [];
+    @Input() columns: any[] = [];
     @Input() options: any;
+    @Input() tableClass:any;
 
     //@ContentChild('headerRef',{static: false}) headerRef: TemplateRef<any>;
-    @ContentChild(HeaderComponent, { static: false }) headerRef: HeaderComponent
+    @ContentChild(CaptionComponent, { static: false }) captionRef: CaptionComponent
 
     @Output() rowClick: EventEmitter<any> = new EventEmitter<any>();
 
@@ -24,6 +25,7 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
     itemPerPage = 10;
     itemPerPageDDL: any = [10, 20, 50, 100];
     currentPage = 1;
+    rowClickEvent = false;
     orderBy: { order: string, key: string } = { order: '', key: '' };
     dataShowing: { start: number, end: number, len: number } = { start: 0, end: 0, len: 0 }
 
@@ -32,6 +34,13 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
     constructor(private dataShowingService: DataShowingService) { }
 
     ngOnInit() {
+        
+        if(this.options){
+            this.itemPerPageDDL = (this.options.hasOwnProperty('rowPerPage') == false || this.options.rowPerPage.length == 0 ) ? this.itemPerPageDDL : this.options.rowPerPage;
+            this.itemPerPage =  this.itemPerPageDDL[0];
+            this.rowClickEvent = this.options.rowClickEvent? this.options.rowClickEvent : this.rowClickEvent;
+        }
+
         this.columns.map((item) => {
             item['sorting'] = item.hasOwnProperty('sorting') ? item['sorting'] : true;
             item['headAlign'] = item.hasOwnProperty('headAlign') ? item['headAlign'].toLowerCase() : 'left';
@@ -42,7 +51,6 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
                 item['pinnedMarginLeft'] = this.styleParams.pinnedScollerMarginLeft;
                 this.styleParams.pinnedScollerMarginLeft += parseInt(item['width']) + 20;
             }
-            console.log(item);
         })
 
         this.dataShowingFn(this.currentPage, this.itemPerPage, this.data.length)
@@ -57,7 +65,7 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
 
     }
     ngAfterContentInit() {
-        console.log(this.headerRef);
+        //console.log(this.headerRef);
 
     }
 

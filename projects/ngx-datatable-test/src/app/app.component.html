@@ -2,12 +2,13 @@
 <div class="container">
 <br/>
     <ngx-datatable 
+        tableClass = "table table-striped table-bordered table-hover"
         [data]="data"
         [options]="options" 
         [columns]="columns"
         (rowClick)="onRowClick($event)"
     >
-        <ngx-header>
+        <ngx-caption>
             <div class="row">
                 <div class="col-sm-6 col-xs-6 col-6 ">
                     <b>
@@ -20,7 +21,7 @@
                     </button>
                 </div>
             </div>
-        </ngx-header>
+        </ngx-caption>
 
         <ng-template #actionTpl let-row let-rowIndex="rowIndex" let-columnValue="columnValue">
             <!--{{row | json}} {{rowIndex}} {{columnValue}} -->
