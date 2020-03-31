@@ -10,24 +10,24 @@ export class AppComponent implements OnInit {
 
     title = 'ngx-datatable-test';
     options = {
-        rowClickEvent: false
-        // rowPerPage : [5, 10, 20, 30]
+        rowClickEvent: false,
+        rowPerPage : [5, 10, 20, 30]
     }
     data = [];
     columns: any = {};
     ngOnInit(): void {
         this.columns = [
-            { key: 'id', title: "ID", align: { head: 'right' }, width: 50, sorting: true, pinned: false },
-            { key: 'name', title: 'Name', align: { head: 'right' }, width: 100, pinned: false },
+            { key: 'id', title: "ID",  width: 50, sorting: true, pinned: true },
+            { key: 'name', title: 'Name', width: 100, pinned: true },
             { key: 'phone', title: 'Phone', align: { head: 'center' }, width: 100, sorting: true },
             { key: 'company', title: '<div class="blue"><i class="fa fa-building"></i>  Company</div>', width: 300, sorting: true, align: { head: 'left', body: 'right' }, noWrap: { head: true, body: true } },
-            { key: 'date', title: 'Date', sorting: false },
+            { key: 'date', title: 'Date', sorting: false, pinned: true },
             { key: 'phone', title: 'Phone', width: 200 },
             { key: 'zip', title: 'Action', sorting: false, width: 80, cellTemplate: this.actionTpl, noWrap: { head: true, body: true } },
-            // { key: 'company', title: 'Company', width: 200, noWrap: { head: true, body: true } },
-            // { key: 'zip', title: 'ZIP', sorting: false },
-            // { key: 'date', title: 'Date', sorting: false },
-            // { key: 'zip', title: 'ZIP', sorting: false }
+            { key: 'company', title: 'Company', width: 200, noWrap: { head: true, body: true } },
+            { key: 'zip', title: 'ZIP', sorting: false },
+            { key: 'date', title: 'Date', sorting: false },
+            { key: 'zip', title: 'ZIP', sorting: false }
             
         ]
 

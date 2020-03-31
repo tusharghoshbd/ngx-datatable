@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 
-import { NgxDatatableModule } from './ngx-datatable/ngx-datatable.module';
+import { NgxDatatableModule } from 'ngx-datatable';
 import { AppComponent } from './app.component';
 //import { SearchPipe } from './pipe/search.pipe';
 
