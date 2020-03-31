@@ -10,8 +10,8 @@ export class AppComponent implements OnInit {
 
     title = 'ngx-datatable-test';
     options = {
-        rowClickEvent: false,
-        rowPerPage : [5, 10, 20, 30]
+        //rowClickEvent: false,
+        //rowPerPage : [5, 10, 20, 30]
     }
     data = [];
     columns: any = {};

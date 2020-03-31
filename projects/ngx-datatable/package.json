@@ -1,6 +1,31 @@
 {
-  "name": "ngx-datatable",
-  "version": "0.0.1",
+  "name": "@tusharghoshbd/ngx-datatable",
+  "version": "1.0.0",
+  "description": "Ngx Data Table is an angular library for presenting data in table. This library is easy to integrate in your angular component. This library supports search, pagination features, cell template, sorting, alignment, warping. You can also customize this library as your requirements",
+  "main": "dist/ngx-datatable",
+  "author": "tusharghoshbd",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tusharghoshbd/ngx-datatable"
+  },
+  "keywords": [
+    "ngx datatable",
+    "jQuery datatable",
+    "Angular datatable",
+    "Easy datatable",
+    "ng datatable",
+    "Datagrid",
+    "Datatable",
+    "Data Grid",
+    "Angular",
+    "ngx datagrid",
+    "data grid",
+    "angular data table",
+    "Angular Jquery grid",
+    "jqGrid",
+    "jqDatatable"
+  ],
   "peerDependencies": {
     "@angular/common": "^8.1.3",
     "@angular/core": "^8.1.3",

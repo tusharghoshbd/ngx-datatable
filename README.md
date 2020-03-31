@@ -1,27 +1,67 @@
-# NgxDatatable
+# Ngx Data Table
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
+**Ngx Data Table** is an angular library for presenting data in table. This library is easy to integrate in your angular component. This library supports search, pagination features, cell template, sorting, alignment, warping. You can also customize this library as your requirements.
 
-## Development server
+Building this library is inspired by jQuery Datatable, ngx-easy-table and @swimlane/ngx-datatable.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Demo
+![](https://media2.giphy.com/media/U6eXMuh4OSAiuSsmiF/200.gif)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[Demo in stackblitz](https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts)
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+As a prerequisite, you need [boostrap](https://getbootstrap.com/) library.
 
-## Running unit tests
+```angular
+npm i ngx-pagination
+npm i @tusharghoshbd/ngx-datatable
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Usage
 
-## Further help
+#### Html file
+```angular
+<ngx-datatable 
+   tableClass = "table table-striped table-bordered table-hover"
+   [data]="data"
+   [options]="options" 
+   [columns]="columns"
+ >
+ </ngx-datatable >
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Ts file
+```angular
+options:any={};
+data:any[] = [];
+columns: any = {};
+
+```
+## Features
+* Filtering
+* Pagination
+* Sorting
+* Pinned column
+* Cell template customization
+* Beautiful Table caption
+* Beautify the Table header
+* Cell text warping features
+* Cell text alignment features
+* Capable to modify the row per page
+* Row click event
+* Auto scrolling
+* Easy to integrate and less CSS work
+
+**All features examples are available in demo.** [Demo in stackblitz](https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts)
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
