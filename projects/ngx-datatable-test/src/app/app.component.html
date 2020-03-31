@@ -1,35 +1,25 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Ngx Datatable</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li [class.active]="navBarShow.basic"><a href="#" (click)="onClickBasic()">Basic</a></li>
+      <li [class.active]="navBarShow.pinTab"><a href="#" (click)="onClickPinColumn()">Pin column</a></li>
+      <li [class.active]="navBarShow.cellTemplate"><a href="#" (click)="onClickCellTemplate()">Cell Template</a></li>
+    </ul>
+  </div>
+</nav>
 
 <div class="container">
-<br/>
-    <ngx-datatable 
-        tableClass = "table table-striped table-bordered table-hover"
-        [data]="data"
-        [options]="options" 
-        [columns]="columns"
-        (rowClick)="onRowClick($event)"
-    >
-        <ngx-caption>
-            <div class="row">
-                <div class="col-sm-6 col-xs-6 col-6 ">
-                    <b>
-                        <i class="fa fa-table" aria-hidden="true"></i>
-                        Data Table List
-                    </b>
-                </div>
-                <div class="col-sm-6 col-xs-6 col-6  text-right">
-                    <button type="button" class="btn btn-primary" (click)="onClickBtn()">Add <i class="fa fa-plus" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </ngx-caption>
 
-        <ng-template #actionTpl let-row let-rowIndex="rowIndex" let-columnValue="columnValue">
-            <!--{{row | json}} {{rowIndex}} {{columnValue}} -->
-            <a href="javascript:void(0)" (click)="remove()">Edit</a> | <a href="javascript:void(0)" (click)="remove()">Delete</a>
-        </ng-template>
-        
-    </ngx-datatable>
+
+  <app-basic *ngIf="navBarShow.basic"></app-basic>
+  <app-pin-tab *ngIf="navBarShow.pinTab"></app-pin-tab>
+  <app-cell-template *ngIf="navBarShow.cellTemplate"></app-cell-template>
+
 </div>
 
 
 
+<br />

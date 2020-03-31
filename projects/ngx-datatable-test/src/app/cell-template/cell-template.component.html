@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-sm-12">
+      <h3>Cell template table datatable</h3>
+      <ngx-datatable tableClass="table table-striped table-bordered table-hover" [data]="data" [options]="options"
+        [columns]="columns" (rowClick)="onRowClick($event)">
+        <ngx-caption>
+          <div class="row">
+            <div class="col-sm-6 col-xs-6 col-6 ">
+              <b>
+                <i class="fa fa-table" aria-hidden="true"></i>
+                Data Table List
+              </b>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-6  text-right">
+              <button type="button" class="btn btn-primary" (click)="onClickBtn()">Add <i class="fa fa-plus"
+                  aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </ngx-caption>
+        <ng-template #actionTpl let-row let-rowIndex="rowIndex" let-columnValue="columnValue">
+            <!--{{row | json}} {{rowIndex}} {{columnValue}} -->
+            <a href="javascript:void(0)" (click)="edit(row)">Edit</a> | 
+            <a href="javascript:void(0)"  (click)="remove(rowIndex)">Delete</a>
+          </ng-template>
+       
+      </ngx-datatable>
+    </div>
+  </div>
