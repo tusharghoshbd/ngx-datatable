@@ -10,6 +10,7 @@
             <div class="col-xs-6 col-sm-6 col-6 text-left">
                 <label style="font-weight: 100;">
                     <input type="text" 
+                    [id]="'search_'+tableId"
                     [(ngModel)]="searchText" 
                     (input)="onInputSearch()"
                     name="search"
@@ -21,7 +22,7 @@
             </div>
             <div class="col-sm-6 col-xs-6 col-6 text-right">
                 <label style="font-weight: 100;">
-                    <select (change)="onChangeItemPerPage()" style="border-radius: 0px;" [(ngModel)]="itemPerPage" name="itemPerPage" class="form-control" id="exampleFormControlSelect1">
+                    <select (change)="onChangeItemPerPage()" style="border-radius: 0px;" [(ngModel)]="itemPerPage" name="itemPerPage" class="form-control"  [id]="'itemPerPage_'+tableId">
                         <option *ngFor="let item of itemPerPageDDL" [ngValue]="item">{{item}}</option>
                     </select>
                 </label>
@@ -29,7 +30,7 @@
         </div>
         <div class="zui-wrapper">
             <div class="zui-scroller" [style.margin-left]="styleParams.pinnedScollerMarginLeft+'px'" >
-                <table _ngcontent-qqc-c1=""  class=" zui-table dataTable  {{tableClass}}" role="grid" aria-describedby="DataTables_Table_0_info" width="100%">
+                <table [id]="tableId"  class=" zui-table dataTable  {{tableClass}}" role="grid" aria-describedby="DataTables_Table_0_info" width="100%">
                     <thead _ngcontent-qqc-c0="">
                         <tr  role="row" >
                             <th  *ngFor="let column of columns; let i = index; trackBy: identify"

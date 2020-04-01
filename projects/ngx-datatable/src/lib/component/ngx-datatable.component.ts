@@ -3,14 +3,15 @@ import { Subject } from 'rxjs';
 import { DataShowingService } from '../services/data-showing.service';
 import { CaptionComponent } from './caption/caption.component';
 
-
 @Component({
     selector: 'ngx-datatable',
     templateUrl: './ngx-datatable.component.html',
-    styleUrls: ['./ngx-datatable.component.css']
+    styleUrls: ['./ngx-datatable.component.css'],
+    providers:  [ DataShowingService ]
 })
 export class NgxDatatableComponent implements OnInit, AfterContentInit {
     private ngUnsubscribe: Subject<void> = new Subject<void>();
+    @Input() tableId = 'ngxDataTableId';
     @Input() data: any[] = [];
     @Input() columns: any[] = [];
     @Input() options: any;
@@ -82,9 +83,12 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
     }
     onClickOrderBy(colItem: any, index: number) {
         if (colItem.sorting == true) {
-            this.columns.map((item) => { item.sortingOrder = '' })
-            this.orderBy.order = this.orderBy.order == 'asc' ? 'desc' : 'asc';
-            this.orderBy.key = colItem.key;
+            this.columns.map((item) => { item.sortingOrder = '' });
+            this.orderBy = {
+                ...this.orderBy,
+                'order': this.orderBy.order == 'asc' ? 'desc' : 'asc',
+                'key' : colItem.key
+            };
             this.columns[index]['sortingOrder'] = this.orderBy.order;
         }
     }

@@ -22,7 +22,7 @@ import { DataShowingService } from '../services/data-showing.service';
       CommonModule,
       NgxPaginationModule
     ],
-    providers: [DataShowingService],
+    providers: [],
     exports: [NgxDatatableComponent, CaptionComponent]
 })
 export class NgxDatatableModule { }
