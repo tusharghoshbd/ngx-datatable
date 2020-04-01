@@ -8,7 +8,7 @@ import { BasicComponent } from './basic/basic.component';
 import { PinTabComponent } from './pin-tab/pin-tab.component';
 import { CellTemplateComponent } from './cell-template/cell-template.component';
 //import { SearchPipe } from './pipe/search.pipe';
-
+import { AppService } from './app.service';
 
 @NgModule({
     declarations: [
@@ -24,7 +24,7 @@ import { CellTemplateComponent } from './cell-template/cell-template.component';
         CommonModule
     ],
     //exports:[SearchPipe],
-    providers: [],
+    providers: [AppService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

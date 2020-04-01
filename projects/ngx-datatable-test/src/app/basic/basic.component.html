@@ -4,8 +4,20 @@
       <ul>
         <li>No configurarion</li>
       </ul>
-      <ngx-datatable tableClass="table table-striped table-bordered table-hover" [tableId]="'basic'" [data]="data" [options]="options"
+      <ngx-datatable tableClass="table table-striped table-bordered table-hover"  [data]="data" [options]="options"
         [columns]="columns" >
+      </ngx-datatable>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    
+    <div class="col-sm-12">
+        <h3>Datatable with caption</h3>
+      <ngx-datatable tableClass="table table-striped table-bordered table-hover"  [data]="dataWithCaption" [options]="optionsWithCaption"
+        [columns]="columnsWithCaption" >
         <ngx-caption>
           <div class="row">
             <div class="col-sm-12 col-xs-12 col-12 ">
@@ -54,23 +66,14 @@
 
   </div>
   <hr />
-  <div class="row">
-    <div class="col-sm-12">
-      <h3>Datatable without caption</h3>
-      <ngx-datatable tableClass="table table-striped table-bordered table-hover" [data]="data" [options]="options"
-        [columns]="columns" >
-      </ngx-datatable>
-    </div>
-  </div>
 
-  <hr />
   <div class="row">
     <div class="col-sm-12">
-      <h3>Datatable bootstrap class</h3>
+      <h3>Datatable bootstrap without class</h3>
       <ul>
         <li>You can modify your tableClass attribute to change the table class.</li>
       </ul>
-      <ngx-datatable tableClass="table table-bordered " [data]="data" [options]="options"   [columns]="columns"
+      <ngx-datatable tableClass="" [data]="dataWithoutClass" [options]="optionsWithoutClass"   [columns]="columnsWithoutClass"
         >
         <ngx-caption>
           <div class="row">

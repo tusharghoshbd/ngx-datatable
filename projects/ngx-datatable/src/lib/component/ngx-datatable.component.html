@@ -1,9 +1,7 @@
 
 <div  color="darken" class="jarviswidget">
     <header *ngIf="captionRef">
-        <ngx-caption>
-            <ng-content select="ngx-caption"></ng-content>
-        </ngx-caption>
+        <ng-content select="ngx-caption"></ng-content>
     </header>
     <div  class="dataTables_wrapper">
         <div class="row no-row-margin" style="margin-top: 5px;">
@@ -39,13 +37,13 @@
                                 [style.max-width]="column.width+'px'" 
                                 [style.text-align]="column.align && column.align.head"
                                 [class.zui-sticky-col]="column.pinned"
-                                [class.wrap]="column.noWrap && column.noWrap.head"
                                 [style.margin-left]="column.pinnedMarginLeft+'px'"
                                 >
-                                <span [innerHTML]="column.title" 
-                                [class.sort-by] = "column.sorting && column.sortingOrder==''"
-                                [class.sort-by-asc] = "column.sorting && column.sortingOrder=='asc'"
-                                [class.sort-by-desc] = "column.sorting && column.sortingOrder=='desc'"
+                                <span [innerHTML]="column.title"
+                                    [class.wrap]="column.noWrap && column.noWrap.head" 
+                                    [class.sort-by] = "column.sorting && column.sortingOrder==''"
+                                    [class.sort-by-asc] = "column.sorting && column.sortingOrder=='asc'"
+                                    [class.sort-by-desc] = "column.sorting && column.sortingOrder=='desc'"
                                  ></span>  
                                 <!-- [ngClass]="{sort-by:column.sorting==true, sort-by-asc:column.sorting==true&&column.sortingOrder=='asc', sort-by-desc:column.sorting==true&&column.sortingOrder=='desc'}"  -->
                                 <!-- <div class="sorting"style="display: inline;"><span>&#8593;</span> <span>&#8595;</span></div>	 -->

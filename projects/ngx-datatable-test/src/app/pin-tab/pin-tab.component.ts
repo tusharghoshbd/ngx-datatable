@@ -1,4 +1,5 @@
 import { Component, ViewChild, TemplateRef, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-pin-tab',
@@ -10,7 +11,7 @@ export class PinTabComponent implements OnInit  {
     data = [];
     columns: any = {};
     columnsWithFeatures:any
-
+    constructor(private appService:AppService) { }
     ngOnInit(): void {
       
         this.columns = [
@@ -26,7 +27,7 @@ export class PinTabComponent implements OnInit  {
             { key: 'date', title: 'Date', sorting: false },
             { key: 'zip', title: 'ZIP', sorting: false }
         ]
-        this.setData();
+        this.data = this.appService.getData();
        
     }
 
