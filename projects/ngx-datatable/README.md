@@ -24,7 +24,7 @@ npm i @tusharghoshbd/ngx-datatable
 ## Usage
 
 #### Html file
-```angular
+```html
 <ngx-datatable 
    tableClass = "table table-striped table-bordered table-hover"
    [data]="data"
@@ -35,10 +35,35 @@ npm i @tusharghoshbd/ngx-datatable
 ```
 
 #### Ts file
-```angular
+```ts
 options:any={};
 data:any[] = [];
 columns: any = {};
+
+ngOnInit(): void {
+
+   this.columns = [
+        { key: 'id', title: "ID" },
+        { key: 'name', title: 'Name' },
+        { key: 'phone', title: 'Phone' },
+        { key: 'company', title: 'Company'}
+   ]
+  
+   this.data = [
+        {
+           "id": "1",
+           "name": "Warren",
+           "phone": "1-412-485-9725",
+           "company": "Etiam Institute"
+        },
+        {
+            "id": "2",
+            "name": "Brendan",
+            "phone": "1-724-406-2487",
+            "company": "Enim Commodo Limited"
+        }
+    ]
+}
 
 ```
 
@@ -47,7 +72,10 @@ columns: any = {};
 import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
 
 @NgModule({
-   imports:[ ... NgxDatatableModule ]
+   imports:[ 
+             ... 
+             NgxDatatableModule 
+          ]
 })
 
 ```
@@ -68,7 +96,7 @@ import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
 * Easy to integrate and less CSS work
 * Responsive
 
-**All features examples are available in demo.** [Demo in stackblitz](https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts)
+**All features examples are available in demo.** [Demo](https://ngx-datatable-angular.stackblitz.io/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
