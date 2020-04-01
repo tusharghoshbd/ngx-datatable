@@ -1,6 +1,6 @@
 
 .jarviswidget {
-	margin: 0 0 30px;
+	/* margin: 0 0 30px; */
 	position: relative;
 	-moz-border-radius: 0;
 	-khtml-border-radius: 0;
@@ -16,49 +16,6 @@
     background-color: #404040;
     color:white
 }
-
-/* 
-.jarviswidget>header>.widget-icon {
-	display: block;
-	width: 30px;
-	height: 32px;
-	position: relative;
-	float: left;
-	font-size: 111%;
-	line-height: 32px;
-	text-align: center;
-	margin-right: -10px
-}
-
-.jarviswidget>header h2 {
-	height: 100%;
-	width: auto;
-	display: inline-block;
-	font-size: 14px;
-	position: relative;
-	margin: 0;
-	line-height: 34px;
-	letter-spacing: 0
-}
-
-.jarviswidget>header>h2 {
-	margin-left: 10px;
-	float: left
-}
-
-.jarviswidget>header>:first-child.widget-icon {
-	margin-left: 0
-}
-
-.jarviswidget>header .jarviswidget-icon {
-	width: 16px;
-	height: 16px;
-	float: left;
-	margin: 12px 10px 0 0;
-	display: block;
-	zoom: 1;
-	z-index: 4000
-} */
 
 .ui-sortable .jarviswidget-sortable>header {
 	cursor: move;

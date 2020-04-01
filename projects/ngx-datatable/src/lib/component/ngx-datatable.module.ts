@@ -17,10 +17,10 @@ import { DataShowingService } from '../services/data-showing.service';
 @NgModule({
   declarations: [NgxDatatableComponent, SearchPipe, SortPipe, CaptionComponent],
   imports: [
-    FormsModule,
-      BrowserModule,
-      CommonModule,
-      NgxPaginationModule
+        FormsModule,
+        BrowserModule,
+        CommonModule,
+        NgxPaginationModule
     ],
     providers: [],
     exports: [NgxDatatableComponent, CaptionComponent]
