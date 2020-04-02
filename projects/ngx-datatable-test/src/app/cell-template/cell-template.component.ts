@@ -16,14 +16,12 @@ export class CellTemplateComponent implements OnInit  {
     ngOnInit(): void {
       
         this.columns = [
-            { key: 'id', title: "ID",  width: 50, sorting: true },
-            { key: 'name', title: 'Name', width: 100 },
-            { key: 'phone', title: 'Phone', align: { head: 'left' }, width: 100, sorting: true },
+            { key: 'id', title: '<div class="blue"><i class="fa fa-id-card-o"></i> ID</div>',  width: 60, sorting: true },
+            { key: 'name', title: '<div class="blue"><i class="fa fa-user"></i> Name</div>', width: 100 },
+            { key: 'phone', title: '<div class="blue"><i class="fa fa-phone"></i> Phone</div>', align: { head: 'left' }, width: 100, sorting: true },
             { key: 'company', title: '<div class="blue"><i class="fa fa-building"></i>  Company</div>', width: 300, sorting: true, align: { head: 'left', body: 'right' }, noWrap: { head: true, body: true } },
-            { key: 'date', title: 'Date', sorting: false, pinned: false },
-            { key: 'date', title: 'Date' },
-            { key: 'phone', title: 'Phone' ,width: 100},
-            { key: 'zip', title: 'Action', sorting: false, width: 80, cellTemplate: this.actionTpl, noWrap: { head: true, body: true } }
+            { key: 'date', title: '<div class="blue"><i class="fa fa-calendar-times-o"></i> Date</div>', sorting: false},
+            { key: 'zip', title: '<div class="blue">Action</div>', align: { head: 'center', body:  'center' }, sorting: false, width: 80, cellTemplate: this.actionTpl }
         ]
         this.data = this.appService.getData();
        

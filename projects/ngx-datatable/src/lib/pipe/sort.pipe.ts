@@ -25,6 +25,21 @@ export class SortPipe implements PipeTransform {
     }
 
     private compare(a: any, b: any, key: string): number {
-        return ('' + a[key]).localeCompare(b[key]);
+        //return ('' + a[key]).localeCompare(b[key]);
+        //console.log(this.isNaN(a, b));
+        if (this.isNaN(a[key], b[key])) {
+            return (''+a[key]).localeCompare(b[key]);
+        } else {
+            if (parseFloat(a[key]) < parseFloat(b[key])) {
+              return -1;
+            }
+            if (parseFloat(a[key]) > parseFloat(b[key])) {
+              return 1;
+            }
+        }
+        return 0;
+    }
+    private  isNaN(aV: any, bV: any): boolean {
+        return (isNaN(parseFloat(aV)) || !isFinite(aV)) || (isNaN(parseFloat(bV)) || !isFinite(bV));
     }
 }

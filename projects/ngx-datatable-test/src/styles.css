@@ -1,9 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
 .red{
     color:red !important
 }
 .blue{
-    color:blue !important
+    color:#337ab7 !important
 }
 ul.ngx-pagination{
     padding-left: 0px !important;

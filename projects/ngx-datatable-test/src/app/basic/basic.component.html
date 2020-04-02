@@ -4,7 +4,7 @@
       <ul>
         <li>No configurarion</li>
       </ul>
-      <ngx-datatable tableClass="table table-striped table-bordered table-hover"  [data]="data" [options]="options"
+      <ngx-datatable tableClass="table table-striped table-bordered table-hover" [tableId]="'basic'" [data]="data" [options]="options"
         [columns]="columns" >
       </ngx-datatable>
     </div>
@@ -16,7 +16,7 @@
     
     <div class="col-sm-12">
         <h3>Datatable with caption</h3>
-      <ngx-datatable tableClass="table table-striped table-bordered table-hover"  [data]="dataWithCaption" [options]="optionsWithCaption"
+      <ngx-datatable tableClass="table table-striped table-bordered table-hover"  [tableId]="'basic1'" [data]="dataWithCaption" [options]="optionsWithCaption"
         [columns]="columnsWithCaption" >
         <ngx-caption>
           <div class="row">
@@ -43,7 +43,7 @@
         <li> {{ "align: { head: 'center', body:'left' } //center, left, right" }}</li>
         <li> {{ "noWrap: { head: true, body: true } // value will be either true or false" }}</li>
       </ul>
-      <ngx-datatable tableClass="table table-striped table-bordered table-hover"  [data]="dataWithFeatures" [options]="optionsWithFeatures"
+      <ngx-datatable tableClass="table table-striped table-bordered table-hover"  [tableId]="'basic2'" [data]="dataWithFeatures" [options]="optionsWithFeatures"
         [columns]="columnsWithFeatures" (rowClick)="onRowClick($event)">
         <ngx-caption>
           <div class="row">
@@ -73,7 +73,7 @@
       <ul>
         <li>You can modify your tableClass attribute to change the table class.</li>
       </ul>
-      <ngx-datatable tableClass="" [data]="dataWithoutClass" [options]="optionsWithoutClass"   [columns]="columnsWithoutClass"
+      <ngx-datatable tableClass="" [tableId]="'basic3'" [data]="dataWithoutClass" [options]="optionsWithoutClass"   [columns]="columnsWithoutClass"
         >
         <ngx-caption>
           <div class="row">
