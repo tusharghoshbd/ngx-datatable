@@ -1,3 +1,15 @@
-.red{
-    color:red !important
-}
+h1{
+    margin-top: 10px;
+  }
+  
+  @media screen and (max-width: 576px){
+      .custom-pagination-align{
+          text-align: left !important;
+      }
+      ul{
+          column-count : 1
+      }
+      .live-code{
+         display: none !important;
+      }
+  }

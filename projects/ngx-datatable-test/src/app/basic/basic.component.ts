@@ -11,6 +11,10 @@ export class BasicComponent implements OnInit  {
     data = [];
     columns: any = {};
 
+    optionsBasicNoData = {}
+    dataBasicNoData = [];
+    columnsBasicNoData: any = {};
+
     optionsWithCaption = {}
     dataWithCaption = [];
     columnsWithCaption: any = {};
@@ -26,6 +30,7 @@ export class BasicComponent implements OnInit  {
     constructor(private appService:AppService) { }
     ngOnInit(): void {
        
+        
         this.data = this.appService.getData();
         this.columns = [
             { key: 'id', title: "ID" },
@@ -33,7 +38,20 @@ export class BasicComponent implements OnInit  {
             { key: 'phone', title: 'Phone' },
             { key: 'company', title: 'Company'},
             { key: 'date', title: 'Date' },
-            { key: 'phone', title: 'Phone' }
+            { key: 'phone', title: 'Phone' },
+        ]
+
+        this.optionsBasicNoData = {
+            emptyDataMessage : 'No data available in table'
+        }
+        this.dataBasicNoData = [];
+        this.columnsBasicNoData = [
+            { key: 'id', title: "ID" },
+            { key: 'name', title: 'Name' },
+            { key: 'phone', title: 'Phone' },
+            { key: 'company', title: 'Company'},
+            { key: 'date', title: 'Date' },
+            { key: 'phone', title: 'Phone' },
         ]
 
         this.dataWithCaption = this.appService.getData();
@@ -49,7 +67,8 @@ export class BasicComponent implements OnInit  {
 
         this.optionsWithFeatures = {
             rowClickEvent: true,
-           rowPerPage : [5, 10, 20, 30]
+            rowPerPageMenu: [5, 10, 20, 30],
+            rowPerPage : 5
         }
         this.dataWithFeatures = this.appService.getData();
         this.columnsWithFeatures = [

@@ -15,6 +15,9 @@ export class CellTemplateComponent implements OnInit  {
     constructor(private appService:AppService) { }
     ngOnInit(): void {
       
+        this.options = {
+            loader: true
+        }
         this.columns = [
             { key: 'id', title: '<div class="blue"><i class="fa fa-id-card-o"></i> ID</div>',  width: 60, sorting: true },
             { key: 'name', title: '<div class="blue"><i class="fa fa-user"></i> Name</div>', width: 100 },
@@ -23,7 +26,13 @@ export class CellTemplateComponent implements OnInit  {
             { key: 'date', title: '<div class="blue"><i class="fa fa-calendar-times-o"></i> Date</div>', sorting: false},
             { key: 'zip', title: '<div class="blue">Action</div>', align: { head: 'center', body:  'center' }, sorting: false, width: 80, cellTemplate: this.actionTpl }
         ]
-        this.data = this.appService.getData();
+        setTimeout(() => {
+            this.data = this.appService.getData();
+            this.options = {
+                ...this.options,
+                loader : false
+            }
+        }, 2000);
        
     }
 

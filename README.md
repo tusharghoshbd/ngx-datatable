@@ -8,13 +8,15 @@ Building this library is inspired by jQuery Datatable, ngx-easy-table and @swiml
 ## Demo
 ![](https://media2.giphy.com/media/U6eXMuh4OSAiuSsmiF/200.gif)
 
-[Demo in stackblitz](https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts)
+
+[Demo](https://ngx-datatable-angular.stackblitz.io/)
+
 
 ## Installation
 
 As a prerequisite, you need [boostrap](https://getbootstrap.com/) library.
 
-```angular
+```ts
 npm i ngx-pagination
 npm i @tusharghoshbd/ngx-datatable
 ```
@@ -81,6 +83,7 @@ import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
 ```
 
 ## Features
+* Responsive
 * Filtering
 * Pagination
 * Sorting
@@ -94,9 +97,17 @@ import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
 * Row click event
 * Auto scrolling
 * Easy to integrate and less CSS work
-* Responsive
 
-**All features examples are available in demo.** [Demo](https://ngx-datatable-angular.stackblitz.io/)
+
+**All features examples are available in demo.** 
+[Demo in stackblitz](https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts)
+
+## Upcoming features
+* Column wise search
+* Row detail
+* No data template features
+* loading template features
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
