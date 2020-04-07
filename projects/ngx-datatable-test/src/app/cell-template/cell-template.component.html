@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-12">
-      <h3>Customize cell template in datatable</h3>
+      <h3>Customize cell template with  <a href="https://raw.githubusercontent.com/swimlane/ngx-datatable/master/src/assets/data/100k.json">100k</a> data in datatable</h3>
       <ngx-datatable tableClass="table table-striped table-bordered table-hover" [data]="data" [options]="options"
         [columns]="columns" (rowClick)="onRowClick($event)">
         <ngx-caption>
@@ -18,6 +18,9 @@
             </div>
           </div>
         </ngx-caption>
+        <ng-template #addressTpl let-row let-rowIndex="rowIndex" let-columnValue="columnValue">
+            {{columnValue.city}}, {{columnValue.state}}   
+        </ng-template>
         <ng-template #actionTpl let-row let-rowIndex="rowIndex" let-columnValue="columnValue">
             <!--{{row | json}} {{rowIndex}} {{columnValue}} -->
             <a href="javascript:void(0)" (click)="edit(row)">Edit</a> | 
