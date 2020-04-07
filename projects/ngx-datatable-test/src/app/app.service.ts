@@ -257,7 +257,7 @@ export class AppService {
         ];
     }
 
-    public get100KData(){
+    public get10KData(){
         return [
             {
               "id": 0,

@@ -1,31 +1,74 @@
 <div class="row">
     <div class="col-sm-12">
-      <h3>Customize cell template with  <a href="https://raw.githubusercontent.com/swimlane/ngx-datatable/master/src/assets/data/100k.json">100k</a> data in datatable</h3>
-      <ngx-datatable tableClass="table table-striped table-bordered table-hover" [data]="data" [options]="options"
-        [columns]="columns" (rowClick)="onRowClick($event)">
-        <ngx-caption>
-          <div class="row">
-            <div class="col-sm-6 col-xs-6 col-6 ">
-              <b>
-                <i class="fa fa-table" aria-hidden="true"></i>
-                Data Table List
-              </b>
+        <h3>Customize cell template with  <a href="https://raw.githubusercontent.com/swimlane/ngx-datatable/master/src/assets/data/100k.json">10k</a> data in datatable</h3>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b>Advance Search</b>
+                <span class="pull-right show-hide" (click)="panelShow = !panelShow" ><i class="fa " [class.fa-plus]="!panelShow" [class.fa-minus]="panelShow"></i></span>
             </div>
-            <div class="col-sm-6 col-xs-6 col-6  text-right">
-                <button type="button" class="btn btn-primary" (click)="onClickBtn()">
-                    <i class="fa fa-plus" aria-hidden="true"></i> Add 
-                </button>
+            <div class="panel-body" *ngIf="panelShow">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6 col-6">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" autocomplete="off" class="form-control" id="name" (input)="onNameSearch($event.target.value)" placeholder="Name" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6 col-6">
+                        <div class="form-group">
+                            <label for="gender">Gender:</label>
+                            <select class="form-control" id="gender" (change)="onGenderSearch($event.target.value)">
+                                <option value="">All</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6 col-6">
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <input type="text" autocomplete="off" class="form-control" id="address" (input)="onAddressSearch($event.target.value)"  placeholder="Address"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6 col-6">
+                        <div class="form-group">
+                            <label for="age">Age:</label>
+                            <div class="input-daterange input-group" id="kt_datepicker">
+                                <input type="text" class="form-control kt-input" name="from" #from placeholder="From" (change)="onAgeSearch(from.value, to.value)" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-ellipsis-h"></i></span>
+                                </div>
+                                <input type="text" class="form-control kt-input" name="to" #to [value]="to.value == '' ? from.value : to.value" placeholder="To" (change)="onAgeSearch(from.value, to.value)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </ngx-caption>
+        </div>
+        <ngx-datatable tableClass="table table-striped table-bordered table-hover" [data]="data" [options]="options"
+            [columns]="columns">
+            <ngx-caption>
+            <div class="row">
+                <div class="col-sm-6 col-xs-6 col-6 ">
+                <b>
+                    <i class="fa fa-table" aria-hidden="true"></i>
+                    Data Table List
+                </b>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-6  text-right">
+                    <button type="button" class="btn btn-primary" (click)="onClickBtn()">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Add 
+                    </button>
+                </div>
+            </div>
+            </ngx-caption>
         <ng-template #addressTpl let-row let-rowIndex="rowIndex" let-columnValue="columnValue">
             {{columnValue.city}}, {{columnValue.state}}   
         </ng-template>
         <ng-template #actionTpl let-row let-rowIndex="rowIndex" let-columnValue="columnValue">
-            <!--{{row | json}} {{rowIndex}} {{columnValue}} -->
             <a href="javascript:void(0)" (click)="edit(row)">Edit</a> | 
             <a href="javascript:void(0)"  (click)="remove(rowIndex)">Delete</a>
-          </ng-template>
+        </ng-template>
        
       </ngx-datatable>
     </div>
