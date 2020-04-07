@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import {CommonModule} from "@angular/common";
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -18,7 +17,6 @@ import { DataShowingService } from '../services/data-showing.service';
   declarations: [NgxDatatableComponent, SearchPipe, SortPipe, CaptionComponent],
   imports: [
         FormsModule,
-        BrowserModule,
         CommonModule,
         NgxPaginationModule
     ],
