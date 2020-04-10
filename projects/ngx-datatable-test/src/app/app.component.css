@@ -7,7 +7,7 @@ h1{
           text-align: left !important;
       }
       ul{
-          column-count : 1
+          column-count : 2
       }
       .live-code{
          display: none !important;

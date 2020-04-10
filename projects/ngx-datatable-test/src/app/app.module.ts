@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { BasicComponent } from './basic/basic.component';
 import { PinTabComponent } from './pin-tab/pin-tab.component';
 import { CellTemplateComponent } from './cell-template/cell-template.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+
 //import { SearchPipe } from './pipe/search.pipe';
 import { AppService } from './app.service';
 
@@ -15,7 +17,8 @@ import { AppService } from './app.service';
             AppComponent,
             BasicComponent,
             PinTabComponent,
-            CellTemplateComponent
+            CellTemplateComponent,
+            CheckboxComponent
             //SearchPipe
     ],
     imports: [

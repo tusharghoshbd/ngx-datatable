@@ -31,6 +31,17 @@
                 <table [id]="tableId"  class=" zui-table dataTable  {{tableClass}}" role="grid" aria-describedby="DataTables_Table_0_info" width="100%">
                     <thead _ngcontent-qqc-c0="">
                         <tr  role="row" >
+                            <th *ngIf="options.checkboxes"
+                                [style.min-width]="styleParams.pinnedFlag ? '33px' : 'auto'"
+                                [style.max-width]="styleParams.pinnedFlag ? '33px' : 'auto'"
+                                [class.zui-sticky-col]="styleParams['pinnedFlag']">
+                                    <input
+                                        class="ngx-form-checkbox"
+                                        type="checkbox"
+                                        id="checkbox-all"
+                                        (change)="onCheckboxSelectAll($event.target.checked)"
+                                    />
+                            </th>
                             <th  *ngFor="let column of columns; let i = index; trackBy: identify"
                                 (click)="onClickOrderBy(column, i)"
                                 [style.min-width]="column.width+'px'"
@@ -58,6 +69,18 @@
                             trackBy: identify; let i = index;" 
                             [ngClass]="{ 'cus-cursor-pointer':options.rowClickEvent}" 
                             (click)="onRowClick(row)" >
+                            <td *ngIf="options.checkboxes"
+                                [style.min-width]="styleParams.pinnedFlag ? '33px' : 'auto'"
+                                [style.max-width]="styleParams.pinnedFlag ? '33px' : 'auto'"
+                                [class.zui-sticky-col]="styleParams['pinnedFlag']">
+                                    <input
+                                        class="ngx-form-checkbox"
+                                        type="checkbox"
+                                        id="checkbox-{{row._autoId}}"
+                                        [checked]="selectedCheckboxes.has(row._autoId)"
+                                        (change)="onCheckboxSelect(row)"
+                                    />
+                            </td>
                             <td *ngFor="let column of columns;let j=index;" 
                                 [style.min-width]="column.width+'px'" 
                                 [style.max-width]="column.width+'px'" 
@@ -67,13 +90,12 @@
                                 [style.margin-left]="column.pinnedMarginLeft+'px'"
                                 >
                                 <ng-container *ngIf="!column.cellTemplate">{{row[column.key]}}</ng-container>
-                                <ng-container
-                                    *ngIf="column.cellTemplate"
+                                <ng-container *ngIf="column.cellTemplate"
                                     [ngTemplateOutlet]="column.cellTemplate"
                                     [ngTemplateOutletContext]="{
-                                    $implicit: row,
-                                    rowIndex: i,
-                                    columnValue: row[column.key]
+                                        $implicit: row,
+                                        rowIndex: row._autoId,
+                                        columnValue: row[column.key]
                                     }"
                                 >
                                 </ng-container>

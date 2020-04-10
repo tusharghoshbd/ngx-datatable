@@ -7,3 +7,8 @@
 ul.ngx-pagination{
     padding-left: 0px !important;
 }
+
+input[type=checkbox], input[type=radio] {
+    margin: 0px;
+    line-height: normal;
+}

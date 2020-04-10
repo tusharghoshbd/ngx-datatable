@@ -1,8 +1,31 @@
 <div class="row">
     <div class="col-sm-12">
       <h3>Pined Table Datatable</h3>
-      <ngx-datatable tableClass="table table-striped table-bordered table-hover" [data]="data" [options]="options"
-        [columns]="columns" (rowClick)="onRowClick($event)">
+      <ngx-datatable tableClass="table table-striped table-bordered table-hover" 
+        [tableId]="'basicPinnedTable'"
+        [data]="data" [options]="options"
+        [columns]="columns" >
+        <ngx-caption>
+          <div class="row">
+            <div class="col-sm-12 col-xs-12 col-12 ">
+              <b>
+                <i class="fa fa-table" aria-hidden="true"></i>
+                Basic Data Table List
+              </b>
+            </div>
+          </div>
+        </ngx-caption>
+      </ngx-datatable>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Pined Table with checkbox Datatable</h3>
+      <ngx-datatable tableClass="table table-striped table-bordered table-hover" 
+        [tableId]="'basicPinnedTableWithCheckbox'"
+        [data]="dataWithCheckbox" [options]="optionsWithCheckbox"
+        [columns]="columnsWithCheckbox" (checkboxClick)="onCheckboxClick($event)"  >
         <ngx-caption>
           <div class="row">
             <div class="col-sm-12 col-xs-12 col-12 ">

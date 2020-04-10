@@ -7,8 +7,9 @@
       <li [class.active]="navBarShow.basic"><a href="#" (click)="onClickBasic()">Basic</a></li>
       <li [class.active]="navBarShow.pinTab"><a href="#" (click)="onClickPinColumn()">Pin column</a></li>
       <li [class.active]="navBarShow.cellTemplate"><a href="#" (click)="onClickCellTemplate()">Cell Template</a></li>
+      <li [class.active]="navBarShow.checkbox"><a href="#" (click)="onClickCheckbox()">Checkbox</a></li>
 
-      <li><a class="live-code" href="https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts" >Live example</a></li>
+      <li ><a class="live-code" style="color:red" href="https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts" >Code example</a></li>
     </ul>
     
   </div>
@@ -18,6 +19,7 @@
   <app-basic *ngIf="navBarShow.basic"></app-basic>
   <app-pin-tab *ngIf="navBarShow.pinTab"></app-pin-tab>
   <app-cell-template *ngIf="navBarShow.cellTemplate"></app-cell-template>
+  <app-checkbox *ngIf="navBarShow.checkbox"></app-checkbox>
 </div>
 
 

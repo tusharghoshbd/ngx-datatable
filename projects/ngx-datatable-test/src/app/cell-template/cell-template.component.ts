@@ -11,8 +11,7 @@ export class CellTemplateComponent implements OnInit  {
     @ViewChild('actionTpl', { static: true }) actionTpl: TemplateRef<any>;
     @ViewChild('addressTpl', { static: true }) addressTpl: TemplateRef<any>;
 
-
-    panelShow = false;
+    panelShow = true;
     options = {};
     data = [];
     dataBK = [];

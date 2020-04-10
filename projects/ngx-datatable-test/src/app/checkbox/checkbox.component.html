@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-sm-12">
+      <h3>Datatable with checkbox example</h3>
+      <ngx-datatable tableClass="table table-striped table-bordered table-hover" 
+        [data]="data" [options]="options" 
+        [columns]="columns"   (checkboxClick)="onCheckboxClick($event)" >
+        <ngx-caption>
+          <div class="row">
+            <div class="col-sm-12 col-xs-12 col-12 ">
+              <b>
+                <i class="fa fa-table" aria-hidden="true"></i>
+                Basic Data Table List
+              </b>
+            </div>
+          </div>
+        </ngx-caption>
+      </ngx-datatable>
+    </div>
+  </div>
+  <div style="color: red;"><b>Note: </b>Don't use checkbox features and advance search features togather</div>

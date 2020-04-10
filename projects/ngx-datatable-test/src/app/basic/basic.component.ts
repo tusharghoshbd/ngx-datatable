@@ -103,6 +103,6 @@ export class BasicComponent implements OnInit  {
         alert(JSON.stringify(item));
     }
 
-
+    
    
 }

@@ -9,15 +9,15 @@ Building this library is inspired by jQuery Datatable, ngx-easy-table and @swiml
 ![](https://media2.giphy.com/media/U6eXMuh4OSAiuSsmiF/200.gif)
 
 
-[Demo](https://ngx-datatable-angular.stackblitz.io/)
+[Demo Example](https://ngx-datatable-angular.stackblitz.io/)
 
+[Demo in stackblitz](https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts)
 
 ## Installation
 
 As a prerequisite, you need [boostrap](https://getbootstrap.com/) library.
 
 ```ts
-npm i ngx-pagination
 npm i @tusharghoshbd/ngx-datatable
 ```
 
@@ -66,7 +66,6 @@ ngOnInit(): void {
         }
     ]
 }
-
 ```
 
 #### Module file
@@ -79,7 +78,32 @@ import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
              NgxDatatableModule 
           ]
 })
+```
 
+
+#### Default table options/configurations
+```ts
+{
+   'emptyDataMessage': 'No data available in table',
+   'rowClickEvent': false,
+   'rowPerPageMenu': [10, 20, 50, 100],
+   'rowPerPage': 10,
+   'loader': false,
+   'checkboxes':false
+}
+```
+#### Default/mandatory column fields
+```ts
+{
+   'key': '...',   // column key name | mandatory field 
+   'title': '...', // Table column title | mandatory field
+   'width': 'auto',  // default pin column width 100px 
+   'sorting': true  // default true
+   'pinned': false  // default true
+   'align': { head: 'left', body: 'left' }, //default
+   'noWrap': { head: false, body: false} //default
+   'cellTemplate':'...'  // For custom cell template
+}
 ```
 
 ## Features
@@ -88,6 +112,7 @@ import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
 * Pagination
 * Sorting
 * Pinned column
+* Checkbox features in table
 * Cell template customization
 * Beautiful Table caption
 * Beautify the Table header
@@ -99,8 +124,8 @@ import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
 * Easy to integrate and less CSS work
 
 
-**All features examples are available in demo.** 
-[Demo in stackblitz](https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts)
+**All features examples are available in 
+[Demo in stackblitz](https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts)** 
 
 ## Upcoming features
 * Column wise search
