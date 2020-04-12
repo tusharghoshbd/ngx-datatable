@@ -9,7 +9,7 @@ Building this library is inspired by jQuery Datatable, ngx-easy-table and @swiml
 ![](https://media2.giphy.com/media/U6eXMuh4OSAiuSsmiF/200.gif)
 
 
-[Demo Example](https://ngx-datatable-angular.stackblitz.io/)
+[Demo example](https://ngx-datatable-angular.stackblitz.io/)
 
 [Demo in stackblitz](https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts)
 
@@ -89,7 +89,8 @@ import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
    'rowPerPageMenu': [10, 20, 50, 100],
    'rowPerPage': 10,
    'loader': false,
-   'checkboxes':false
+   'checkboxes':false,
+   'rowDetailTemplate': undefined 
 }
 ```
 #### Default/mandatory column fields
@@ -100,7 +101,8 @@ import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
    'width': 'auto',  // default pin column width 100px 
    'sorting': true  // default true
    'pinned': false  // default true
-   'align': { head: 'left', body: 'left' }, //default
+   'align': { head: 'left', body: 'left' }, //default | left, right, center  
+   'vAlign': { head: 'bottom', body: 'bottom' }, //default | middle, top, bottom
    'noWrap': { head: false, body: false} //default
    'cellTemplate':'...'  // For custom cell template
 }
@@ -113,6 +115,7 @@ import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
 * Sorting
 * Pinned column
 * Checkbox features in table
+* Row detail features
 * Cell template customization
 * Beautiful Table caption
 * Beautify the Table header
@@ -129,8 +132,8 @@ import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
 
 ## Upcoming features
 * Column wise search
-* Row detail
-* No data template features
+* Row grouping features
+* No-data template features
 * loading template features
 
 
