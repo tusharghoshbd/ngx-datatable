@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ContentChild, AfterContentInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output,SimpleChanges, EventEmitter, ContentChild, AfterContentInit, TemplateRef, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataShowingService } from '../services/data-showing.service';
 import { CaptionComponent } from './caption/caption.component';
@@ -7,9 +7,11 @@ import { CaptionComponent } from './caption/caption.component';
     selector: 'ngx-datatable',
     templateUrl: './ngx-datatable.component.html',
     styleUrls: ['./ngx-datatable.component.css'],
-    providers:  [ DataShowingService ]
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [DataShowingService]
+    
 })
-export class NgxDatatableComponent implements OnInit, AfterContentInit {
+export class NgxDatatableComponent implements OnInit, AfterContentInit,OnChanges {
     private ngUnsubscribe: Subject<void> = new Subject<void>();
     private customOptions = {
         'emptyDataMessage': 'No data available in table',
@@ -17,7 +19,8 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
         'rowPerPageMenu': [10, 20, 50, 100],
         'rowPerPage': 10,
         'loader': false,
-        'checkboxes':false
+        'checkboxes': false,
+        'rowDetailTemplate':undefined
     };
     private _options: any = {};
     private _data: any[] = [];
@@ -60,9 +63,13 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
     styleParams: any = { pinnedScollerMarginLeft: 0, pinnedFlag:false };
 
     selectedCheckboxes = new Set();
-    selectedCheckList:any[] = [];
+    selectedCheckList: any[] = [];
+    
+    openRowDetailsId = new Set();
 
-    constructor(private dataShowingService: DataShowingService) { }
+    constructor(
+        private dataShowingService: DataShowingService,
+        private  cdr: ChangeDetectorRef) { }
 
     ngOnInit() {
         this.columns.map((item, i) => {
@@ -70,12 +77,12 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
             item['headAlign'] = item.hasOwnProperty('headAlign') ? item['headAlign'].toLowerCase() : 'left';
             item['sortingOrder'] = '';
 
-            if (item.hasOwnProperty('pinned') && item['pinned'] == true) {
+            if ( (item.hasOwnProperty('pinned') && item['pinned'] == true) ) {
                 /** working for pin the checkbox column */
-                this.styleParams['pinnedFlag'] = true;
-                if (this.options.checkboxes == true && this.styleParams['pinnedFlag'] && i ==0) { 
-                    this.styleParams.pinnedScollerMarginLeft = 33;
-                }
+                // this.styleParams['pinnedFlag'] = true;
+                // if ( this.options.checkboxes == true && this.styleParams['pinnedFlag'] && i ==0) { 
+                //     this.styleParams.pinnedScollerMarginLeft = 33;
+                // }
 
                 item['width'] = item.hasOwnProperty('width') ? item['width'] : 100;
                 item['pinnedMarginLeft'] = this.styleParams.pinnedScollerMarginLeft;
@@ -96,9 +103,10 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
     }
     ngAfterContentInit() {
         //console.log(this.headerRef);
-
     }
-
+    ngOnChanges(changes: SimpleChanges) { 
+        //console.log(changes);
+    }
     onInputSearch() {
         this.currentPage = 1;
     }
@@ -137,7 +145,6 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
             this.selectedCheckboxes.add(rowObj._autoId);
             this.selectedCheckList.push(rowObj);
         }
-
         this.checkboxClick.emit(this.selectedCheckList);
     }
     onCheckboxSelectAll(checked) { 
@@ -150,6 +157,28 @@ export class NgxDatatableComponent implements OnInit, AfterContentInit {
             });
         }
         this.checkboxClick.emit(this.selectedCheckList);
+    }
+    onClickRowDettailArrowOpen(rowObj:any) { 
+        if (this.openRowDetailsId.has(rowObj._autoId)) {
+            this.openRowDetailsId.delete(rowObj._autoId);
+        }
+        else { 
+            this.openRowDetailsId.add(rowObj._autoId);
+        }
+    }
+    onClickRowDettailAllArrowOpen() { 
+        if (this.openRowDetailsId.size != this.data.length) {
+            this.openRowDetailsId = new Set();
+            this.data.filter(item => {
+                this.openRowDetailsId.add(item._autoId);
+                return true;
+            });
+        }
+        else { 
+            this.openRowDetailsId = new Set();
+        }
+        
+        
     }
 
     identify(index, item) {

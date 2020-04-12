@@ -9,6 +9,7 @@ import { AppService } from '../app.service';
 })
 
 export class PinTabComponent implements OnInit  {
+    @ViewChild('rowDetailTpl', { static: true }) rowDetailTpl: TemplateRef<any>;
     options = {}
     data = [];
     columns: any = [];
@@ -35,7 +36,10 @@ export class PinTabComponent implements OnInit  {
         this.data = this.appService.getData();
 
 
-        this.optionsWithCheckbox = {checkboxes:true}
+        this.optionsWithCheckbox = {
+            checkboxes: true,
+            rowDetailTemplate: this.rowDetailTpl
+        }
         this.dataWithCheckbox = this.appService.getData();;
         this.columnsWithCheckbox =[
             { key: 'id', title: "ID",  width: 50, sorting: true, pinned: true },

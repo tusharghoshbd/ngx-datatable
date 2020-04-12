@@ -10,7 +10,7 @@ import { AppService } from '../app.service';
 export class CellTemplateComponent implements OnInit  {
     @ViewChild('actionTpl', { static: true }) actionTpl: TemplateRef<any>;
     @ViewChild('addressTpl', { static: true }) addressTpl: TemplateRef<any>;
-
+    
     panelShow = true;
     options = {};
     data = [];
@@ -24,11 +24,11 @@ export class CellTemplateComponent implements OnInit  {
             loader: true
         }
         this.columns = [
-            { key: 'id', title: '<div class="blue"><i class="fa fa-id-card-o"></i> ID</div>',  width: 60, sorting: true },
+            { key: 'id', title: '<div class="blue"><i class="fa fa-id-card-o"></i> ID</div>',  width: 60, sorting: true, align: { head: 'center', body: 'center' }, vAlign: { head: 'bottom', body: 'middle' }, },
             { key: 'name', title: '<div class="blue"><i class="fa fa-user"></i> Name</div>', width: 100 },
             { key: 'gender', title: '<div class="blue"><i class="fa fa-phone"></i> Gender</div>', align: { head: 'left' }, width: 100, sorting: true },
             { key: 'address', title: '<div class="blue"><i class="fa fa-building"></i>  Address</div>', width: 300, sorting: false, align: { head: 'left', body: 'right' }, noWrap: { head: true, body: true }, cellTemplate: this.addressTpl },
-            { key: 'age', title: '<div class="blue"><i class="fa fa-calendar-times-o"></i> Age</div>', sorting: true, align: { head: 'center', body: 'center' }},
+            { key: 'age', title: '<div class="blue"><i class="fa fa-calendar-times-o"></i> Age</div>',width: 60, sorting: true, align: { head: 'center', body: 'center' }},
             { key: 'zip', title: '<div class="blue">Action</div>', align: { head: 'center', body:  'center' }, sorting: false, width: 80, cellTemplate: this.actionTpl }
         ]
         setTimeout(() => {
@@ -42,8 +42,21 @@ export class CellTemplateComponent implements OnInit  {
     }
 
 
-    onClickBtn() {
-        alert("Hi Add Button !!!!!");
+    onClickAddBtn() {
+        this.data = [
+            ...this.data,
+            {
+                "id": 0,
+                "name": "Tushar",
+                "gender": "male",
+                "age": 29,
+                "address": {
+                "state": "Dhaka",
+                "city": "Dhaka"
+                }
+            }
+        ];
+        alert("Hi Add Button! A new data named 'Tushar' has been added.");
     }
     remove(rowInded) {
         alert("Row Index :- "+rowInded);

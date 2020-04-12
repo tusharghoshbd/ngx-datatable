@@ -2,7 +2,7 @@
     <div class="col-sm-12">
       <h3>Datatable with checkbox example</h3>
       <ngx-datatable tableClass="table table-striped table-bordered table-hover" 
-        [data]="data" [options]="options" 
+      [tableId]="'checkbox'" [data]="data" [options]="options" 
         [columns]="columns"   (checkboxClick)="onCheckboxClick($event)" >
         <ngx-caption>
           <div class="row">
@@ -17,4 +17,32 @@
       </ngx-datatable>
     </div>
   </div>
-  <div style="color: red;"><b>Note: </b>Don't use checkbox features and advance search features togather</div>
+  <div style="color: red;"><b>Note: </b>Don't use checkbox features and advance search technique togather</div>
+
+  <hr />
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Datatable with checkbox and row detail example</h3>
+      <ngx-datatable tableClass="table table-striped table-bordered table-hover" 
+      [tableId]="'checkboxWithRowDetail'" [data]="dataWithRowDetail" [options]="optionsWithRowDetail" 
+        [columns]="columnsWithRowDetail"   (checkboxClick)="onCheckboxClick($event)" >
+        <ngx-caption>
+          <div class="row">
+            <div class="col-sm-12 col-xs-12 col-12 ">
+              <b>
+                <i class="fa fa-table" aria-hidden="true"></i>
+                Basic Data Table List
+              </b>
+            </div>
+          </div>
+        </ngx-caption>
+
+        <ng-template #rowDetailTpl let-row let-rowIndex="rowIndex">
+            <h3>{{row.name}}</h3>
+            <p>{{row.phone}}, {{row.date}}</p>
+        </ng-template>
+
+
+      </ngx-datatable>
+    </div>
+  </div>

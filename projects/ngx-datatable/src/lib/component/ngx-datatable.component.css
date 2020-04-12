@@ -668,6 +668,24 @@ table.dataTable{
     margin-top: 20px;
 } */
 
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 12px solid #555;
+    cursor:pointer
+}
+.triangle-right {
+	width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+	border-left: 12px solid #555;
+    border-bottom: 6px solid transparent;
+    cursor:pointer
+}
+
 @media screen and (max-width: 767px){
     div.dataTables_wrapper div.dataTables_length,div.dataTables_wrapper div.dataTables_filter,div.dataTables_wrapper div.dataTables_info,div.dataTables_wrapper div.dataTables_paginate{
         text-align:center

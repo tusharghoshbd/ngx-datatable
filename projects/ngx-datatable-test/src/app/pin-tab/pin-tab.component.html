@@ -21,7 +21,7 @@
   <hr />
   <div class="row">
     <div class="col-sm-12">
-      <h3>Pined Table with checkbox Datatable</h3>
+      <h3>Pined datatable with checkbox and row detail </h3>
       <ngx-datatable tableClass="table table-striped table-bordered table-hover" 
         [tableId]="'basicPinnedTableWithCheckbox'"
         [data]="dataWithCheckbox" [options]="optionsWithCheckbox"
@@ -36,6 +36,13 @@
             </div>
           </div>
         </ngx-caption>
+
+        <ng-template #rowDetailTpl let-row let-rowIndex="rowIndex">
+            <h3>{{row.name}}</h3>
+            <p>{{row.phone}}, {{row.date}}</p>
+        </ng-template>
+
+
       </ngx-datatable>
     </div>
   </div>
