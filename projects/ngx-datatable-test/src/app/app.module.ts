@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 
-import { NgxDatatableModule } from 'ngx-datatable';
+import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
 import { AppComponent } from './app.component';
 import { BasicComponent } from './basic/basic.component';
 import { PinTabComponent } from './pin-tab/pin-tab.component';
