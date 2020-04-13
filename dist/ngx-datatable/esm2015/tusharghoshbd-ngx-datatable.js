@@ -1,0 +1,13 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Generated bundle index. Do not edit.
+ */
+export { NgxDatatableComponent, NgxDatatableModule } from './public-api';
+export { CaptionComponent as ɵb } from './lib/component/caption/caption.component';
+export { SearchPipe as ɵc } from './lib/pipe/search.pipe';
+export { SortPipe as ɵd } from './lib/pipe/sort.pipe';
+export { DataShowingService as ɵa } from './lib/services/data-showing.service';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidHVzaGFyZ2hvc2hiZC1uZ3gtZGF0YXRhYmxlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQHR1c2hhcmdob3NoYmQvbmd4LWRhdGF0YWJsZS8iLCJzb3VyY2VzIjpbInR1c2hhcmdob3NoYmQtbmd4LWRhdGF0YWJsZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBSUEsMERBQWMsY0FBYyxDQUFDO0FBRTdCLE9BQU8sRUFBQyxnQkFBZ0IsSUFBSSxFQUFFLEVBQUMsTUFBTSwyQ0FBMkMsQ0FBQztBQUNqRixPQUFPLEVBQUMsVUFBVSxJQUFJLEVBQUUsRUFBQyxNQUFNLHdCQUF3QixDQUFDO0FBQ3hELE9BQU8sRUFBQyxRQUFRLElBQUksRUFBRSxFQUFDLE1BQU0sc0JBQXNCLENBQUM7QUFDcEQsT0FBTyxFQUFDLGtCQUFrQixJQUFJLEVBQUUsRUFBQyxNQUFNLHFDQUFxQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBHZW5lcmF0ZWQgYnVuZGxlIGluZGV4LiBEbyBub3QgZWRpdC5cbiAqL1xuXG5leHBvcnQgKiBmcm9tICcuL3B1YmxpYy1hcGknO1xuXG5leHBvcnQge0NhcHRpb25Db21wb25lbnQgYXMgybVifSBmcm9tICcuL2xpYi9jb21wb25lbnQvY2FwdGlvbi9jYXB0aW9uLmNvbXBvbmVudCc7XG5leHBvcnQge1NlYXJjaFBpcGUgYXMgybVjfSBmcm9tICcuL2xpYi9waXBlL3NlYXJjaC5waXBlJztcbmV4cG9ydCB7U29ydFBpcGUgYXMgybVkfSBmcm9tICcuL2xpYi9waXBlL3NvcnQucGlwZSc7XG5leHBvcnQge0RhdGFTaG93aW5nU2VydmljZSBhcyDJtWF9IGZyb20gJy4vbGliL3NlcnZpY2VzL2RhdGEtc2hvd2luZy5zZXJ2aWNlJzsiXX0=

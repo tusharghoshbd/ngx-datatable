@@ -1,0 +1,54 @@
+{
+  "name": "@tusharghoshbd/ngx-datatable",
+  "version": "1.3.0",
+  "description": "Ngx Data Table is an angular library for presenting data in table. This library is easy to integrate in your angular component. This library supports search, pagination features, cell template, sorting, alignment, warping. You can also customize this library as your requirements",
+  "main": "bundles/tusharghoshbd-ngx-datatable.umd.js",
+  "author": "tusharghoshbd",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tusharghoshbd/ngx-datatable"
+  },
+  "keywords": [
+    "ngx datatable",
+    "jQuery datatable",
+    "Angular datatable",
+    "Easy datatable",
+    "ng datatable",
+    "Datagrid",
+    "jquery",
+    "Datatable",
+    "Data Grid",
+    "Angular",
+    "Datatable",
+    "ngx datagrid",
+    "data grid",
+    "angular data table",
+    "Angular Jquery grid",
+    "jqGrid angular",
+    "jqDatatable angular",
+    "datatable angular",
+    "angular 8",
+    "angular 9",
+    "ng 7 ng 8 ng 9",
+    "ngx"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^8.1.3",
+    "@angular/core": "^8.1.3",
+    "ngx-pagination": "^5.0.0"
+  },
+  "dependencies": {
+    "ngx-pagination": "^5.0.0",
+    "tslib": "^1.9.0"
+  },
+  "module": "fesm5/tusharghoshbd-ngx-datatable.js",
+  "es2015": "fesm2015/tusharghoshbd-ngx-datatable.js",
+  "esm5": "esm5/tusharghoshbd-ngx-datatable.js",
+  "esm2015": "esm2015/tusharghoshbd-ngx-datatable.js",
+  "fesm5": "fesm5/tusharghoshbd-ngx-datatable.js",
+  "fesm2015": "fesm2015/tusharghoshbd-ngx-datatable.js",
+  "typings": "tusharghoshbd-ngx-datatable.d.ts",
+  "metadata": "tusharghoshbd-ngx-datatable.metadata.json",
+  "sideEffects": false
+}
