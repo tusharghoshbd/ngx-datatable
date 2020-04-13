@@ -9,7 +9,7 @@ Building this library is inspired by jQuery Datatable, ngx-easy-table and @swiml
 ![](https://media2.giphy.com/media/U6eXMuh4OSAiuSsmiF/200.gif)
 
 
-[Demo example](https://ngx-datatable-angular.stackblitz.io/)
+[Demo example](https://tusharghoshbd.github.io/ngx-datatable/#)
 
 [Demo in stackblitz](https://stackblitz.com/edit/ngx-datatable-angular?file=src/app/app.component.ts)
 
@@ -90,7 +90,7 @@ import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
    'rowPerPage': 10,
    'loader': false,
    'checkboxes':false,
-   'rowDetailTemplate': undefined 
+   'rowDetailTemplate': null
 }
 ```
 #### Default/mandatory column fields
